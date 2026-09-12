@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="/wiki/static/style.css">
+</head>
+
+<body>
+
+<p>[<a href="/wiki/">contents</a>]</p>
+<h1>Editing {{.Title}}</h1>
+<br/>
+<details class="md-help">
+
+<summary>Formatting Guide</summary>
+
+
+	
+		<ul>
+
+			<li><code>**bold**</code> &rarr; <strong>bold</strong></li>
+			<li><code>_italic_</code> &rarr; <em>italic</em></li>
+
+			<li><code>>quote</code> &rarr; quotation (indents text)</li>
+			<li><code>--- or ___ </code> &rarr; draw a horizontal line</li>
+			<li><code># Heading</code></li>
+			<li><code>## Subheading</code></li>
+			<li><code>### Sub-subheading</code></li>
+			<li><code>[link](https://example.com)</code></li>
+			<li><code>![image](https://example.com/photo.jpg)</code></li>
+			<li><code> - item <br/>
+					- item <br/></code> for a bullet list</li>
+			<li><code> 1. item <br/>
+	   2. item <br/>
+				   </code> for a numbered list</li>
+
+		</ul>
+	</details>
+	<br/>
+<form action="/wiki/save/{{.Title | titleToSlug}}" method="POST">
+<div><textarea name="body" rows="20" cols="80">{{printf "%s" .Body}}</textarea></div>
+<div><input type="submit" value="Save"></div>
+</form>
+
+</div>
+</body>
+</html>
+

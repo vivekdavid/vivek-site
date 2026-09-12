@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+
+	<title>{{.Title}}</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	<link rel="stylesheet" href="/wiki/static/style.css">
+</head>
+<body>
+
+<p>[<a href="/wiki/">contents</a>]</p>
+
+	<div class="page">
+
+<h1>{{.Title}}</h1>
+
+<p>[<a href="/wiki/edit/{{.Title | titleToSlug}}">edit</a>]</p>
+
+<div>{{.Body}}</div>
+</div>
+</body>
+</html>
+

@@ -1,0 +1,44 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Wiki Titles</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="/wiki/static/style.css">
+
+</head>
+<body>
+    <h1>Page Titles</h1>
+    <table border="1" cellpadding="8">
+    <tr>
+        <th>Lectures</th>
+        <th>Themes</th>
+    </tr>
+    <tr>
+        <td valign="top">
+            <ul>
+            {{ range .Lectures }}
+                <li>
+                    <a href="/wiki/view/{{ .Title | titleToSlug }}">{{ .EntryDate.Time.Format "2006-01-02" }} &mdash; {{ .Title }}</a>
+                </li>
+            {{ else }}
+                <li>No lectures found.</li>
+            {{ end }}
+            </ul>
+        </td>
+        <td valign="top">
+            <ul>
+            {{ range .Themes }}
+                <li>
+                    <a href="/wiki/view/{{ .Title | titleToSlug }}">{{ .Title }}</a>
+                </li>
+            {{ else }}
+                <li>No themes found.</li>
+            {{ end }}
+            </ul>
+        </td>
+    </tr>
+    </table>
+</body>
+</html>

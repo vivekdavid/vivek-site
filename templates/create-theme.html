@@ -1,0 +1,27 @@
+{{define "create-theme.html"}}
+<!DOCTYPE html>
+<html>
+<head><title>New Theme</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="stylesheet" href="/wiki/static/style.css">
+
+</head>
+<body>
+	<h1>New Theme</h1>
+	{{if .Error}}<p style="color:red;">{{.Error}}</p>{{end}}
+	<form method="POST" action="/wiki/create/theme">
+		<div>
+			<label for="title">Title</label><br>
+			<input type="text" id="title" name="title" required>
+		</div>
+		<div>
+			<label for="body">Content</label><br>
+			<textarea id="body" name="body" rows="15" cols="60"></textarea>
+		</div>
+		<button type="submit">Create Theme</button>
+	</form>
+	<p><a href="/wiki/create">Back</a></p>
+</body>
+</html>
+{{end}}

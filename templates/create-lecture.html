@@ -1,0 +1,32 @@
+{{define "create-lecture.html"}}
+<!DOCTYPE html>
+<html>
+<head><title>New Lecture</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+	<link rel="stylesheet" href="/wiki/static/style.css">
+
+</head>
+<body>
+	<h1>New Lecture &mdash; Theology of the Body</h1>
+	{{if .Error}}<p style="color:red;">{{.Error}}</p>{{end}}
+	<form method="POST" action="/wiki/create/lecture">
+		<div>
+			<label for="title">Title</label><br>
+			<input type="text" id="title" name="title" required>
+		</div>
+		<div>
+			<label for="date">Date</label><br>
+			<input type="date" id="date" name="date" min="1979-09-01" max="1984-11-31" value="1979-09-01" required>
+		</div>
+		<div>
+			<label for="body">Content</label><br>
+			<textarea id="body" name="body" rows="15" cols="60"></textarea>
+		</div>
+		<button type="submit">Create Lecture</button>
+	</form>
+	<p><a href="/wiki/create">Back</a></p>
+</body>
+</html>
+{{end}}
