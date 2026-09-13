@@ -305,6 +305,6 @@ func main() {
 
 	mux.Handle("/wiki/", http.StripPrefix("/wiki", wikiMux))
 
-	fmt.Println("Server starting at :8080...")
-	log.Fatal(http.ListenAndServe(":8080", sessionManager.LoadAndSave(mux)))
+	fmt.Println("Server starting at :8000...")
+	log.Fatal(http.ListenAndServe(":8000", sessionManager.LoadAndSave(mux)))
 }
