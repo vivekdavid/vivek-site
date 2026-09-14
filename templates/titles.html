@@ -7,6 +7,97 @@
 
     <link rel="stylesheet" href="/wiki/static/style.css">
 
+<style>
+#btn-1 {
+    color: #fff;
+    background-color: #0d6efd;
+    border-color: #0d6efd;
+    font-family: Arial, Helvetica, sans-serif;
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+    vertical-align: middle;
+    cursor: pointer;
+    user-select: none;
+    padding: 12px 20px;
+    font-size: 14px;
+    border-radius: .25rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+    border: none;
+    /*** full width block ***/
+    width: 100%; 
+}
+
+#btn-1:hover {
+    color: #fff;
+    background-color: #0b5ed7;
+}
+
+#btn-1:active {
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.24);
+}
+
+/*** disabled style ***/
+#btn-1:disabled {
+    pointer-events: none;
+    opacity: .65;
+}
+
+
+#btn-3 {
+    color: #fff;
+    background-color: #198754;
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+    vertical-align: middle;
+    cursor: pointer;
+    user-select: none;
+    padding: 12px 20px;
+    font-size: 14px;
+    border-radius: .25rem;
+    border: none;
+    font-weight: bold;
+    letter-spacing: 1.2px;
+    /*** full width block ***/
+    width: 100%; 
+}
+
+#btn-3:hover {
+    color: #fff;
+    background-color: #157347;
+    border-color: #146c43;
+}
+
+#btn-3:active {
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.24);
+}
+
+#btn-3:disabled {
+    pointer-events: none;
+    opacity: .65;
+}
+
+.flex {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+     gap: 10px 20px;
+margin-left:30px;
+margin-right:30px;
+padding-top:10px}
+
+.flex-child {
+    -webkit-box-flex: 1 1 auto;
+    -moz-box-flex:  1 1 auto;
+    -webkit-flex:  1 1 auto;
+    -ms-flex:  1 1 auto;
+    flex:  1 1 auto;
+}
+</style>
 </head>
 <body>
     <h1>Page Titles</h1>
@@ -40,5 +131,10 @@
         </td>
     </tr>
     </table>
+<div class="flex">
+	<a href ="/create/lecture" class="flex-child"><input type="button"  id="btn-3" value="Add a new lecture"></a>
+	<a href="/create/theme" class="flex-child"> <input type="button"  id="btn-1"  value="Add a new theme"></a>
+
+<a href
 </body>
 </html>

@@ -20,6 +20,6 @@ insert into pages (title, body, entry_type)
 values ('test', 'hello world', 'theme'),('hello world', 'this is a test of hello world', 'theme');
 
 insert into users (username, password)
-values ('user1', '123'), ('user2', '123'), ('user3', '123');
+values ('Magdalena', 'tob123'), ('Chrystal', 'tob123'), ('Vivek', 'tob123');
 
 COMMIT;

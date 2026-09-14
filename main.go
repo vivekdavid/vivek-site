@@ -282,7 +282,7 @@ func main() {
 	sessionManager.Lifetime = 24 * time.Hour
 	sessionManager.Cookie.Persist = true
 	sessionManager.Cookie.SameSite = http.SameSiteLaxMode
-	sessionManager.Cookie.Secure = false
+	sessionManager.Cookie.Secure = true
 
 	// ----- this is for regular not wiki prefix
 	mux := http.NewServeMux()
