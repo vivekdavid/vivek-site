@@ -5,6 +5,8 @@ import (
 	"database/sql"
 	"fmt"
 	"log"
+	"os"
+	"path/filepath"
 	"time"
 
 	_ "modernc.org/sqlite"
@@ -25,8 +27,14 @@ var DB *sql.DB
 // InitDB that will be exported to main
 func InitDB() {
 	var err error
-	// Open the connection (this doesn't create tables, just the .db file if missing)
-	DB, err = sql.Open("sqlite", "./db_wiki.db")
+
+	exe, err := os.Executable()
+	if err != nil {
+		log.Fatalf("Failed to resolve executable path: %v", err)
+	}
+
+	dbPath := filepath.Join(filepath.Dir(exe), "db_wiki.db")
+	DB, err = sql.Open("sqlite", dbPath)
 	if err != nil {
 		log.Fatalf("Failed to connect to database: %v", err)
 	}
