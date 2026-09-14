@@ -2,6 +2,7 @@ package main
 
 import (
 	"bytes"
+	"embed"
 	"fmt"
 	"html/template"
 	"log"
@@ -16,9 +17,12 @@ import (
 	"wiki/db"
 )
 
+//go:embed templates/*.html
+var templateFS embed.FS
+
 var (
 	sessionManager *scs.SessionManager
-	templates      = template.Must(template.New("").Funcs(template.FuncMap{"titleToSlug": titleToSlug}).ParseFiles("templates/home.html", "edit.html", "view.html", "templates/login.html", "templates/profile.html", "templates/titles.html", "templates/create-lecture.html", "templates/create-theme.html"))
+	templates      = template.Must(template.New("").Funcs(template.FuncMap{"titleToSlug": titleToSlug}).ParseFS(templateFS, "templates/*.html"))
 	// Allows case-insensitive routing for edit, save, and view
 	// validPath = regexp.MustCompile("(?i)^/(edit|save|view)/([a-zA-Z0-9-]+)$")
 	// )
