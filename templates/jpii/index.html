@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>John Paul II – Table of Contents</title>
+  <style>
+    :root {
+      --bg: #f8f6f2;
+      --text: #2c2c2c;
+      --accent: #8b1e3f;          /* deep papal red */
+      --hover: #6d1730;
+    }
+
+    body {
+      font-family: "Georgia", "Times New Roman", serif;
+      background: var(--bg);
+      color: var(--text);
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem;
+      line-height: 1.5;
+    }
+
+    h1 {
+      font-size: 1.9rem;
+      font-weight: normal;
+      letter-spacing: 0.02em;
+      margin: 0 0 0.25rem;
+      color: var(--accent);
+    }
+
+    .subtitle {
+      font-size: 0.95rem;
+      color: #666;
+      margin-bottom: 2.5rem;
+      font-style: italic;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    li {
+      margin: 0.85rem 0;
+      border-bottom: 1px solid #e0dcd4;
+      padding-bottom: 0.85rem;
+    }
+
+    li:last-child {
+      border-bottom: none;
+    }
+
+    a {
+      text-decoration: none;
+      color: var(--text);
+      font-size: 1.25rem;
+      transition: color 0.15s;
+    }
+
+    a:hover {
+      color: var(--accent);
+    }
+
+    a::after {
+      content: " →";
+      opacity: 0;
+      transition: opacity 0.15s;
+    }
+
+    a:hover::after {
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+  <h1>Table of Contents</h1>
+  <p class="subtitle">The life of Karol Wojtyła / John Paul II</p>
+
+  <ul>
+    <li><a href="childhood">Childhood</a></li>
+    <!-- add more pages the same way -->
+  </ul>
+</body>
+</html>

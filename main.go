@@ -292,6 +292,7 @@ func main() {
 	mux := http.NewServeMux()
 
 	mux.HandleFunc("/", homeHandler)
+	mux.Handle("/jpii/", http.StripPrefix("/jpii/", http.FileServer(http.Dir("templates/jpii"))))
 	wikiMux := http.NewServeMux()
 	// wiki routes
 	// Auth routes
