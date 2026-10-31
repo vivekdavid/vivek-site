@@ -476,6 +476,11 @@
         body:"After the passing of his mother and brother, it was just John Paul II and his father.  They slept in the same room to deal with the loneliness.  They would wake up early and go to mass every morning before John Paul had to go to school.  Despite the early losses, young John Paul was a bright student and graduated top of his class.  He was the valedictorian of his high school." 
       },
 
+ {
+        type: "image",
+        src: "https://upload.wikimedia.org/wikipedia/commons/5/5c/William-Adolphe_Bouguereau_The_Virgin_With_Angels.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original",
+        title: "Loneliness"
+      },
 {
         type: "text",
         title: "Ideas for Reflection",

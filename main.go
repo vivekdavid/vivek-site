@@ -5,6 +5,7 @@ import (
 	"embed"
 	"fmt"
 	"html/template"
+	"io/fs"
 	"log"
 	"net/http"
 	"regexp"
@@ -14,11 +15,15 @@ import (
 
 	"github.com/alexedwards/scs/v2"
 	"github.com/yuin/goldmark"
+
 	"wiki/db"
 )
 
 //go:embed templates/*.html
 var templateFS embed.FS
+
+//go:embed templates/jpii
+var jpiiFS embed.FS
 
 var (
 	sessionManager *scs.SessionManager
@@ -292,7 +297,13 @@ func main() {
 	mux := http.NewServeMux()
 
 	mux.HandleFunc("/", homeHandler)
-	mux.Handle("/jpii/", http.StripPrefix("/jpii/", http.FileServer(http.Dir("templates/jpii"))))
+
+	jpiiContent, err := fs.Sub(jpiiFS, "templates/jpii")
+	if err != nil {
+		log.Fatal(err)
+	}
+	mux.Handle("/jpii/", http.StripPrefix("/jpii/", http.FileServer(http.FS(jpiiContent))))
+
 	wikiMux := http.NewServeMux()
 	// wiki routes
 	// Auth routes
