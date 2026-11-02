@@ -163,15 +163,15 @@
 <body>
   <div class="container">
     <header>
-      <h1>All Souls Indulgences</h1>
-      <p class="subtitle">November 2nd is when Catholics celebrate All Souls Day.  We believe the dead are not gone, and from November 1st to November 8, we offer prayers and sacrifices for them:  An offering to loosen the chains that bind the spirit to the failings of flesh, to speed their way through the fires of purgatory and into the gates of heaven. 
+      <h1>All Souls</h1>
+      <p class="subtitle">November 2nd is when Catholics celebrate All Souls Day.  We believe the dead are not gone, and from November 1st to November 8, we offer prayers and sacrifices for them:  An offering to loosen the chains that bind the spirit to the failings of flesh, to speed their way through the fires of purgatory and into the gates of heaven. Here's a guide on to how to celebrate:  
 
       </p>
     </header>
 
     <!-- Example 1 -->
     <div class="card">
-      <h2>  &#x1F56F;&#xFE0F;Feast of All Souls: Done November 2nd   &#x1F56F;&#xFE0F;</h2>
+      <h2>  &#x1F56F;&#xFE0F;Feast of All Souls: Done November 2nd </h2>
       <ol class="emoji-list">
         <li data-emoji="&#x26EA;">Attend a church</li>
         <li data-emoji="&#x1F64F;">While at the church, pray the Apostle's Creed and one Our Father
