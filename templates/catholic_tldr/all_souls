@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Feast of All Souls </title>
+  <style>
+    :root {
+      --bg: #ffffff;
+      --card: #ffffff;
+      --text: #111827;
+      --muted: #6b7280;
+      --accent: #7c3aed;
+      --border: #f0f0f5;
+      --code-bg: #f8fafc;
+      --tip-bg: #f5f3ff;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      padding: 2rem 1rem;
+    }
+
+    .container {
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    h1 {
+      font-size: 2.2rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.03em;
+
+      text-align:center;
+    }
+
+    header {
+      margin-bottom: 3rem;
+      text-align:left ;
+    }
+
+    .subtitle {
+      color:#374151; 
+      font-size: 1.1rem;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+    }
+
+    h2 {
+      font-size: 1.35rem;
+      margin-bottom: 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    /* ========== Emoji Ordered Lists ========== */
+
+    ol.emoji-list {
+      list-style: none;
+      counter-reset: emoji-counter;
+      padding-left: 0;
+    }
+
+    ol.emoji-list > li {
+      counter-increment: emoji-counter;
+      position: relative;
+      padding-left: 3.2rem;
+      margin-bottom: 1.1rem;
+      line-height: 1.5;
+    }
+
+    ol.emoji-list > li::before {
+      content: attr(data-emoji) " " counter(emoji-counter);
+      position: absolute;
+      left: 0;
+      top: 0;
+      font-size: 1.15rem;
+      font-weight: 600;
+      min-width: 2.6rem;
+      color: var(--accent);
+    }
+
+    /* Pure emoji (no number) */
+    ol.emoji-only > li::before {
+      content: attr(data-emoji);
+      font-size: 1.35rem;
+    }
+
+    /* Nested lists stay normal */
+    ol.emoji-list ol {
+      list-style: decimal;
+      margin-top: 0.6rem;
+      padding-left: 1.5rem;
+    }
+
+    ol.emoji-list ol li {
+      padding-left: 0;
+      margin-bottom: 0.4rem;
+    }
+
+    ol.emoji-list ol li::before {
+      content: none;
+    }
+
+    ol.emoji-list > li:last-child {
+      margin-bottom: 0;
+    }
+
+    .tip {
+      background: var(--tip-bg);
+      border-left: 4px solid var(--accent);
+      padding: 1rem 1.25rem;
+      border-radius: 0 10px 10px 0;
+      font-size: 0.95rem;
+      color: var(--muted);
+      margin-top: 1.5rem;
+    }
+
+    code {
+      background: var(--code-bg);
+      padding: 0.15em 0.4em;
+      border-radius: 5px;
+      font-size: 0.9em;
+      color: #6d28d9;
+    }
+
+    pre {
+      background: var(--code-bg);
+      padding: 1.2rem;
+      border-radius: 10px;
+      overflow-x: auto;
+      font-size: 0.9rem;
+      line-height: 1.5;
+      border: 1px solid var(--border);
+    }
+
+    footer {
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.9rem;
+      margin-top: 3rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>All Souls Indulgences</h1>
+      <p class="subtitle">November 2nd is when Catholics celebrate All Souls Day.  We believe the dead are not gone, and from November 1st to November 8, we offer prayers and sacrifices for them:  An offering to loosen the chains that bind the spirit to the failings of flesh, to speed their way through the fires of purgatory and into the gates of heaven. 
+
+      </p>
+    </header>
+
+    <!-- Example 1 -->
+    <div class="card">
+      <h2>  &#x1F56F;&#xFE0F;Feast of All Souls: Done November 2nd   &#x1F56F;&#xFE0F;</h2>
+      <ol class="emoji-list">
+        <li data-emoji="&#x26EA;">Attend a church</li>
+        <li data-emoji="&#x1F64F;">While at the church, pray the Apostle's Creed and one Our Father
+
+	</li>
+      </ol>
+      <div class ="tip">
+<p><strong>The steps listed above offer help to the souls in purgatory. To offer them the greatest possible help, complete these additional steps:</strong></p>
+
+      </div>
+      <ol class="emoji-list">
+	<li data-emoji="&#x1F35E;">Receive the Eucharist</li>
+        <li data-emoji="&#128682;">Go to confession 20 days before or after</li>
+	<li data-emoji="&#x1F54A;&#xFE0F;">Say one Our Father and one Hail Mary for the intentions of the pope</li>
+	<li data-emoji="&#x1F607;">Be free from attachment to sin</li>
+
+      </ol>
+    </div>
+
+    <!-- Example 2 -->
+    <div class="card">
+      <h2>&#x1F56F;&#xFE0F; Prayers for the Holy Souls: Done November 1–8</h2>
+      <ol class="emoji-list">
+        <li data-emoji="💡">Go to any cemetery </li>
+        <li data-emoji="&#x1F607;">While there, pray for the dead</li>
+      </ol>    
+      <div class="tip">
+<p><strong>The steps listed above offer help to the souls in purgatory. To offer them the greatest possible help, complete these additional steps:</strong></p>
+      </div>
+      <ol class="emoji-list">
+	<li data-emoji="&#x1F35E;">Receive the Eucharist</li>
+        <li data-emoji="&#128682;">Go to confession 20 days before or after</li>
+	<li data-emoji="&#x1F54A;&#xFE0F;">Say one Our Father and one Hail Mary for the intentions of the pope</li>
+	<li data-emoji="&#x1F607;">Be free from attachment to sin</li>
+
+      </ol>
+    </div>
+        </div>
+
+  </div>
+</body>
+</html>
+

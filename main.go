@@ -25,6 +25,9 @@ var templateFS embed.FS
 //go:embed templates/jpii
 var jpiiFS embed.FS
 
+//go:embed templates/catholic_tldr
+var cat_tldrFS embed.FS
+
 var (
 	sessionManager *scs.SessionManager
 	templates      = template.Must(template.New("").Funcs(template.FuncMap{"titleToSlug": titleToSlug}).ParseFS(templateFS, "templates/*.html"))
@@ -303,6 +306,12 @@ func main() {
 		log.Fatal(err)
 	}
 	mux.Handle("/jpii/", http.StripPrefix("/jpii/", http.FileServer(http.FS(jpiiContent))))
+
+	cat_tldrContent, err := fs.Sub(cat_tldrFS, "templates/catholic_tldr")
+	if err != nil {
+		log.Fatal(err)
+	}
+	mux.Handle("/catholic_tldr/", http.StripPrefix("/catholic_tldr/", http.FileServer(http.FS(cat_tldrContent))))
 
 	wikiMux := http.NewServeMux()
 	// wiki routes

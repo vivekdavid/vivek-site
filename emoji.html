@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Emoji Ordered List Template</title>
+  <style>
+    :root {
+      --bg: #f4f6fb;
+      --card: #ffffff;
+      --text: #1e1e2f;
+      --muted: #6b7280;
+      --accent: #6d28d9;
+      --border: #e5e7eb;
+      --code-bg: #f1f5f9;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      padding: 2rem 1rem;
+    }
+
+    .container {
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    header {
+      margin-bottom: 3rem;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 2.2rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.03em;
+    }
+
+    .subtitle {
+      color: var(--muted);
+      font-size: 1.1rem;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+    }
+
+    h2 {
+      font-size: 1.35rem;
+      margin-bottom: 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    /* ========== Emoji Ordered Lists ========== */
+
+    ol.emoji-list {
+      list-style: none;
+      counter-reset: emoji-counter;
+      padding-left: 0;
+    }
+
+    ol.emoji-list > li {
+      counter-increment: emoji-counter;
+      position: relative;
+      padding-left: 3.2rem;
+      margin-bottom: 1.1rem;
+      line-height: 1.5;
+    }
+
+    ol.emoji-list > li::before {
+      content: attr(data-emoji) " " counter(emoji-counter);
+      position: absolute;
+      left: 0;
+      top: 0;
+      font-size: 1.15rem;
+      font-weight: 600;
+      min-width: 2.6rem;
+      color: var(--accent);
+    }
+
+    /* Pure emoji (no number) */
+    ol.emoji-only > li::before {
+      content: attr(data-emoji);
+      font-size: 1.35rem;
+    }
+
+    /* Nested lists stay normal */
+    ol.emoji-list ol {
+      list-style: decimal;
+      margin-top: 0.6rem;
+      padding-left: 1.5rem;
+    }
+
+    ol.emoji-list ol li {
+      padding-left: 0;
+      margin-bottom: 0.4rem;
+    }
+
+    ol.emoji-list ol li::before {
+      content: none;
+    }
+
+    ol.emoji-list > li:last-child {
+      margin-bottom: 0;
+    }
+
+    .tip {
+      background: #f8f5ff;
+      border-left: 4px solid var(--accent);
+      padding: 1rem 1.25rem;
+      border-radius: 0 10px 10px 0;
+      font-size: 0.95rem;
+      color: var(--muted);
+      margin-top: 1.5rem;
+    }
+
+    code {
+      background: var(--code-bg);
+      padding: 0.15em 0.4em;
+      border-radius: 5px;
+      font-size: 0.9em;
+      color: #5b21b6;
+    }
+
+    pre {
+      background: var(--code-bg);
+      padding: 1.2rem;
+      border-radius: 10px;
+      overflow-x: auto;
+      font-size: 0.9rem;
+      line-height: 1.5;
+      border: 1px solid var(--border);
+    }
+
+    footer {
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.9rem;
+      margin-top: 3rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Emoji Ordered Lists</h1>
+      <p class="subtitle">Simple HTML + CSS template — just add a data-emoji attribute</p>
+    </header>
+
+    <!-- Example 1 -->
+    <div class="card">
+      <h2>🚀 Getting Started</h2>
+      <ol class="emoji-list">
+        <li data-emoji="📦">Install the dependencies</li>
+        <li data-emoji="⚙️">Configure your environment variables</li>
+        <li data-emoji="🧪">Run the test suite</li>
+        <li data-emoji="🚀">Deploy to production</li>
+      </ol>
+    </div>
+
+    <!-- Example 2 -->
+    <div class="card">
+      <h2>📝 Project Roadmap</h2>
+      <ol class="emoji-list">
+        <li data-emoji="💡">Brainstorm features and user stories</li>
+        <li data-emoji="🎨">Design the UI and create mockups</li>
+        <li data-emoji="💻">Build the core functionality</li>
+        <li data-emoji="🔍">Polish, test, and gather feedback</li>
+        <li data-emoji="🎉">Launch and celebrate</li>
+      </ol>
+    </div>
+
+    <!-- Example 3 -->
+    <div class="card">
+      <h2>✨ Pure Emoji Style</h2>
+      <ol class="emoji-list emoji-only">
+        <li data-emoji="1️⃣">First step</li>
+        <li data-emoji="2️⃣">Second step</li>
+        <li data-emoji="3️⃣">Third step</li>
+        <li data-emoji="4️⃣">Fourth step</li>
+      </ol>
+    </div>
+
+    <!-- How to use -->
+    <div class="card">
+      <h2>🛠️ How to use</h2>
+      <p style="margin-bottom: 1rem; color: var(--muted);">
+        Just copy this pattern:
+      </p>
+      <pre>
+&lt;ol class="emoji-list"&gt;
+  &lt;li data-emoji="🔥"&gt;Your first item&lt;/li&gt;
+  &lt;li data-emoji="✨"&gt;Your second item&lt;/li&gt;
+  &lt;li data-emoji="🎯"&gt;Your third item&lt;/li&gt;
+&lt;/ol&gt;</pre>
+
+      <div class="tip">
+        <strong>Tip:</strong> Add the class <code>emoji-only</code> if you want just the emoji without the number.
+      </div>
+    </div>
+
+    <footer>
+      Drop this file into any project — no build step required.
+    </footer>
+  </div>
+</body>
+</html>
+```
+
+
