@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>John Paul II's Childhood</title>
+  <style>
+    :root {
+      --bg: #0a0a0c;
+      --surface: #141418;
+      --text: #f2f2f4;
+      --text-muted: #9a9aaa;
+      --accent: #6c8cff;
+      --border: #252530;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+      overflow: hidden;
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Thumbs always at bottom */
+    .thumb-strip {
+      order: 3;
+      border-bottom: none;
+      border-top: 1px solid var(--border);
+    }
+
+    .stage {
+      order: 2;
+    }
+
+    /* ========== TOP BAR ========== */
+    .topbar {
+      order: 1;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 10px 16px;
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      z-index: 30;
+    }
+
+    .topbar a.home {
+      color: var(--text);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      letter-spacing: 0.02em;
+      padding: 6px 10px;
+      border-radius: 6px;
+      transition: background 0.15s, color 0.15s;
+    }
+
+    .topbar a.home:hover {
+      background: rgba(108,140,255,0.15);
+      color: var(--accent);
+    }
+
+    .contents-wrap {
+      position: relative;
+    }
+
+    .contents-btn {
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--text);
+      font-size: 0.9rem;
+      font-weight: 500;
+      padding: 6px 12px;
+      border-radius: 6px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: border-color 0.15s, background 0.15s;
+    }
+
+    .contents-btn:hover,
+    .contents-btn[aria-expanded="true"] {
+      border-color: var(--accent);
+      background: rgba(108,140,255,0.12);
+    }
+
+    .contents-menu {
+      display: none;
+      position: absolute;
+      right: 0;
+      top: calc(100% + 6px);
+      min-width: 240px;
+      max-height: min(60vh, 360px);
+      overflow-y: auto;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      box-shadow: 0 12px 32px rgba(0,0,0,0.45);
+      z-index: 40;
+      padding: 6px;
+    }
+
+    .contents-menu.open {
+      display: block;
+    }
+
+    .contents-menu button {
+      display: block;
+      width: 100%;
+      text-align: left;
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      font-size: 0.88rem;
+      padding: 10px 12px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.12s, color 0.12s;
+    }
+
+    .contents-menu button:hover {
+      background: rgba(108,140,255,0.12);
+      color: var(--text);
+    }
+
+    .contents-menu button.active {
+      color: var(--accent);
+      background: rgba(108,140,255,0.1);
+    }
+
+    .contents-menu .type-tag {
+      font-size: 0.7rem;
+      opacity: 0.7;
+      margin-right: 6px;
+    }
+
+    /* ========== THUMBNAIL STRIP ========== */
+    .thumb-strip {
+      display: flex;
+      gap: 8px;
+      padding: 10px 14px;
+      overflow-x: auto;
+      flex-shrink: 0;
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      scrollbar-width: thin;
+      scrollbar-color: var(--accent) var(--surface);
+      -webkit-overflow-scrolling: touch;
+      z-index: 20;
+    }
+
+    .thumb-strip::-webkit-scrollbar { height: 5px; }
+    .thumb-strip::-webkit-scrollbar-track { background: var(--surface); }
+    .thumb-strip::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 3px; }
+
+    .thumb {
+      flex: 0 0 auto;
+      width: 56px;
+      height: 78px;
+      border-radius: 5px;
+      overflow: hidden;
+      cursor: pointer;
+      border: 2px solid transparent;
+      opacity: 0.55;
+      transition: opacity 0.2s, border-color 0.2s, transform 0.15s;
+      background: #1e1e28;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .thumb.text-thumb {
+      font-size: 0.65rem;
+      font-weight: 600;
+      text-align: center;
+      padding: 6px;
+      line-height: 1.2;
+      color: var(--text-muted);
+      letter-spacing: 0.02em;
+    }
+
+    .thumb:hover {
+      opacity: 0.85;
+      transform: scale(1.04);
+    }
+
+    .thumb.active {
+      opacity: 1;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 1px var(--accent);
+    }
+
+    /* ========== STAGE ========== */
+    .stage {
+      flex: 1;
+      position: relative;
+      min-height: 0;
+      overflow: hidden;
+      background: #000;
+    }
+
+    .slide {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.35s ease;
+    }
+
+    .slide.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    /* Image slides */
+    .slide.image-slide img {
+      max-width: 100%;
+      max-height: 100%;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+      display: block;
+    }
+
+    /* Text slides */
+    .slide.text-slide {
+      background: var(--bg);
+      padding: 40px 48px;
+      flex-direction: column;
+      text-align: left;
+      overflow-y: auto;
+    }
+
+    .slide.text-slide .text-content {
+      max-width: 640px;
+    }
+
+    .slide.text-slide h2 {
+      font-size: clamp(1.6rem, 4vw, 2.4rem);
+      font-weight: 600;
+      margin-bottom: 16px;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+      text-align: center;
+    }
+
+    .slide.text-slide p {
+      font-size: clamp(1rem, 2.2vw, 1.2rem);
+      line-height: 1.65;
+      color: var(--text-muted);
+    }
+
+    .slide.text-slide h2 + p {
+      /* normal spacing when title exists */
+    }
+
+    .slide.text-slide .text-content > p:first-child {
+      /* body-only slides: a bit larger / primary text feel */
+      color: var(--text);
+      font-size: clamp(1.05rem, 2.4vw, 1.3rem);
+    }
+
+    /* Nav buttons */
+    .nav-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      border: none;
+      background: rgba(0,0,0,0.5);
+      color: #fff;
+      font-size: 22px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 15;
+      backdrop-filter: blur(4px);
+      transition: background 0.15s, transform 0.15s;
+      -webkit-tap-highlight-color: transparent;
+      outline: none;
+    }
+
+    /* Blue only while pressed — not sticky after click/touch */
+    .nav-btn:active {
+      background: rgba(108,140,255,0.85);
+      transform: translateY(-50%) scale(0.96);
+    }
+
+    /* True hover devices only (mouse) — avoids sticky blue on mobile */
+    @media (hover: hover) and (pointer: fine) {
+      .nav-btn:hover {
+        background: rgba(108,140,255,0.55);
+        transform: translateY(-50%) scale(1.06);
+      }
+      .nav-btn:hover:active {
+        background: rgba(108,140,255,0.85);
+        transform: translateY(-50%) scale(0.96);
+      }
+    }
+
+    .nav-prev { left: 14px; }
+    .nav-next { right: 14px; }
+
+    /* Counter */
+    .counter {
+      position: absolute;
+      bottom: 14px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.6);
+      letter-spacing: 0.06em;
+      z-index: 15;
+      background: rgba(0,0,0,0.4);
+      padding: 4px 12px;
+      border-radius: 20px;
+      backdrop-filter: blur(4px);
+      pointer-events: none;
+    }
+
+    /* ========== DESKTOP ========== */
+    @media (min-width: 768px) {
+      .thumb-strip {
+        padding: 12px 20px;
+      }
+
+      .thumb {
+        width: 64px;
+        height: 90px;
+      }
+
+      .nav-btn {
+        width: 52px;
+        height: 52px;
+        font-size: 24px;
+      }
+
+      .nav-prev { left: 20px; }
+      .nav-next { right: 20px; }
+
+      .slide.text-slide {
+        padding: 60px 80px;
+      }
+    }
+
+    /* Mobile */
+    @media (max-width: 767px) {
+      /* Same arrow position for text and images; extra side padding so text clears them */
+      .slide.text-slide {
+        padding: 28px 64px;
+      }
+
+      .nav-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 18px;
+        background: rgba(0,0,0,0.35);
+      }
+
+      .nav-prev { left: 8px; }
+      .nav-next { right: 8px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="topbar">
+    <a class="home" href="/" id="homeLink">← Home</a>
+    <div class="contents-wrap">
+      <button type="button" class="contents-btn" id="contentsBtn" aria-expanded="false" aria-haspopup="true">
+      </button>
+      <div class="contents-menu" id="contentsMenu" role="menu"></div>
+    </div>
+  </header>
+
+  <div class="thumb-strip" id="thumbStrip" role="listbox" aria-label="Slide index"></div>
+
+  <div class="stage" id="stage">
+    <!-- slides injected by JS -->
+    <button class="nav-btn nav-prev" id="prevBtn" aria-label="Previous">‹</button>
+    <button class="nav-btn nav-next" id="nextBtn" aria-label="Next">›</button>
+    <div class="counter" id="counter"></div>
+  </div>
+
+  <script>
+    // ========== SLIDES ==========
+    // type: "image" | "text"
+    // For images: src required
+    // For text: body required; title optional
+    // inContents: true  → show this slide in the Contents menu (optional)
+    // contentsLabel: "Custom name"  → optional override for the Contents menu text
+    const slides = [
+{
+        type: "text",
+        title: "St John Paul II's youth",
+	 body: ""
+      },
+   {
+        type: "image",
+        src: "https://res.cloudinary.com/d3gizu6t/image/upload/v1793922516/karol-wojtyla.jpg",
+        title: "hiking"
+      },
+      {
+	      type: "text",
+     	title: "College", 
+	      body: "In 1938, John Paul and his father moved to his aunt's home in Krakow so he could attend Jagiellonian University.  He decided to pursue Polish literature and drama.  He loved the outdoors and enjoyed hiking and skiing."
+      },
+      {
+        type: "image",
+        src: "https://res.cloudinary.com/d3gizu6t/image/upload/v1793923078/_108551840_wielun-body-2-alamy.jpg",
+        title: "nazi invasion"
+      },
+      {
+        type: "text",
+        title: "German invasion",
+        body: " In September of 1939, when John Paul was 19 years old, the Nazis invaded Poland.  Entire families were killed; children were used as target practice.  Jews, intellectuals, priests and religious were rounded up and sent to concentration camps.  Schools and libraries throughout Poland were closed in an effort to erase Polish culture.  The Nazis viewed Poles as an inferior race and intended to make the nation a source of uneducated manual labour. "
+
+      },
+      {
+        type: "image",
+        src: " https://res.cloudinary.com/d3gizu6t/image/upload/v1793923826/young-karol-wojtya-as-a-young-factory-worker.jpg",
+        title: "Boy"
+      },
+      {
+        type: "text",
+        title: "Labourer",
+        body: "The Nazis drastically cut back on Polish military pensions, and so John Paul had to work to support himself and his father.  He took a job as a manual labourer in a limestone quarry.  He would walk 30 minutes to work wearing wooden shoes.  He worked outdoors even on the coldest winter days.  Some Polish professors held secret classes in their homes in defiance of the Nazis. John Paul would often attend these classes in the evenings after work."
+      },
+      {
+        type: "image",
+        src: "https://res.cloudinary.com/d3gizu6t/image/upload/v1793926270/JanTyranowski1940.jpg",
+
+        title: "Loss"
+      },
+      {
+        type: "text",
+        title: "Loss",
+        body: "John Paul’s father died shortly after the German invasion.  At age 20, he was alone in the world with no immediate family.  Around the same time started participating in the living rosary prayer group led by  Jan Tyranowski.   Jan was a simple man, an unmarried tailor who started each morning with 4 hours of prayer.  Because so many priests had been killed or put into concentration camps, lay leaders like Jan became important.  Jan became a formative mentor for John Paul, introducing him to the works of saints, including St. Louis de Montfort, whose work, 'true devotion to our Lady,' was a turning point in the life of John Paul."
+      },
+      {
+        type: "image",
+        src: "https://res.cloudinary.com/d3gizu6t/image/upload/v1793320241/teen.webp",
+        title: "Loneliness"
+      },
+      {
+        type: "text",
+        title: "Loneliness",
+        body:"After the passing of his mother and brother, it was just John Paul II and his father.  They slept in the same room to deal with the loneliness.  They would wake up early and go to mass every morning before John Paul had to go to school.  Despite the early losses, young John Paul was a bright student and graduated top of his class.  He was the valedictorian of his high school." 
+      },
+
+ {
+        type: "image",
+        src: "https://upload.wikimedia.org/wikipedia/commons/5/5c/William-Adolphe_Bouguereau_The_Virgin_With_Angels.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original",
+        title: "Loneliness"
+      },
+{
+        type: "text",
+        title: "Ideas for Reflection",
+	body: "<ol><li>When you're suffering, do you find yourself drawing closer to God or pulling away from Him?</li><li>JPII loved soccer, had friends, and was a good student.  How do we balance a deep relationship with God with the ordinary joys and responsibilities of everyday life?</li><li>John Paul's father sacrificed his career ambitions to take care of his wife.  Have you ever witnessed someone put the needs of a loved one ahead of their own dreams or ambitions?</li></ol>"
+      }
+    ];
+
+    let current = 0;
+    const stage = document.getElementById("stage");
+    const thumbStrip = document.getElementById("thumbStrip");
+    const counter = document.getElementById("counter");
+    const contentsMenu = document.getElementById("contentsMenu");
+
+    // Build slides + thumbs (in correct order)
+    const slideFragment = document.createDocumentFragment();
+
+    slides.forEach((s, i) => {
+      // --- slide element ---
+      const el = document.createElement("div");
+      el.className = "slide " + (s.type === "image" ? "image-slide" : "text-slide");
+      el.dataset.index = i;
+
+      if (s.type === "image") {
+        el.innerHTML = `<img src="${s.src}" alt="${s.title || ""}">`;
+      } else {
+        const heading = s.title
+          ? `<h2>${s.title}</h2>`
+          : "";
+        el.innerHTML = `
+          <div class="text-content">
+            ${heading}
+            <p>${s.body}</p>
+          </div>
+        `;
+      }
+      slideFragment.appendChild(el);
+
+      // --- thumbnail ---
+      const thumb = document.createElement("div");
+      thumb.className = "thumb" + (s.type === "text" ? " text-thumb" : "");
+      thumb.setAttribute("role", "option");
+      thumb.setAttribute("aria-selected", "false");
+
+      if (s.type === "image") {
+        thumb.innerHTML = `<img src="${s.src}" alt="Slide ${i + 1}">`;
+      } else {
+        // short label for text slides
+        const label = (s.title || "Text").split(" ").slice(0, 2).join(" ");
+        thumb.textContent = label;
+      }
+
+      thumb.addEventListener("click", () => goTo(i));
+      thumbStrip.appendChild(thumb);
+
+      // contents menu item (only if inContents: true)
+      if (s.inContents) {
+        const item = document.createElement("button");
+        item.type = "button";
+        item.setAttribute("role", "menuitem");
+        item.dataset.slideIndex = String(i);
+        const kind = s.type === "image" ? "Image" : "Text";
+        const label = s.contentsLabel || s.title || (s.type === "image" ? `Image ${i + 1}` : `Text ${i + 1}`);
+        item.innerHTML = `<span class="type-tag">${kind}</span>${label}`;
+        item.addEventListener("click", () => {
+          goTo(i);
+          closeContents();
+        });
+        contentsMenu.appendChild(item);
+      }
+    });
+
+    // Insert all slides in order, before the nav buttons
+    stage.insertBefore(slideFragment, stage.firstChild);
+
+    const slideEls = stage.querySelectorAll(".slide");
+    const thumbs = thumbStrip.querySelectorAll(".thumb");
+
+    function update(index) {
+      slideEls.forEach((el, i) => {
+        el.classList.toggle("active", i === index);
+      });
+      thumbs.forEach((t, i) => {
+        t.classList.toggle("active", i === index);
+        t.setAttribute("aria-selected", i === index ? "true" : "false");
+      });
+      counter.textContent = `${index + 1} / ${slides.length}`;
+      thumbs[index].scrollIntoView({ behavior: "smooth", inline: "center", block: "nearest" });
+      // highlight in Contents menu (only listed slides)
+      contentsMenu.querySelectorAll("button").forEach((btn) => {
+        btn.classList.toggle("active", Number(btn.dataset.slideIndex) === index);
+      });
+    }
+
+    function goTo(index) {
+      if (index < 0) index = slides.length - 1;
+      if (index >= slides.length) index = 0;
+      current = index;
+      update(current);
+    }
+
+    function next() { goTo(current + 1); }
+    function prev() { goTo(current - 1); }
+
+    document.getElementById("nextBtn").addEventListener("click", next);
+    document.getElementById("prevBtn").addEventListener("click", prev);
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "ArrowRight") next();
+      if (e.key === "ArrowLeft") prev();
+    });
+
+    // Swipe
+    let startX = 0;
+    stage.addEventListener("touchstart", (e) => {
+      startX = e.changedTouches[0].screenX;
+    }, { passive: true });
+
+    stage.addEventListener("touchend", (e) => {
+      const diff = startX - e.changedTouches[0].screenX;
+      if (Math.abs(diff) > 50) {
+        if (diff > 0) next();
+        else prev();
+      }
+    }, { passive: true });
+
+    // Contents menu
+    const contentsBtn = document.getElementById("contentsBtn");
+
+    function closeContents() {
+      contentsMenu.classList.remove("open");
+      contentsBtn.setAttribute("aria-expanded", "false");
+    }
+
+    contentsBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      const open = contentsMenu.classList.toggle("open");
+      contentsBtn.setAttribute("aria-expanded", open ? "true" : "false");
+    });
+
+    document.addEventListener("click", (e) => {
+      if (!contentsMenu.contains(e.target) && e.target !== contentsBtn) {
+        closeContents();
+      }
+    });
+
+    // Home: go to first slide (change href if you have a real home page)
+    document.getElementById("homeLink").addEventListener("click", (e) => {
+      // If this page IS the home slideshow, just jump to first slide
+      if (window.location.pathname.endsWith("index.html") || window.location.pathname === "/" || window.location.pathname.endsWith("/")) {
+        e.preventDefault();
+        goTo(0);
+      }
+    });
+
+    // Init
+    update(0);
+  </script>
+</body>
+</html>
