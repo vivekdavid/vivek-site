@@ -498,7 +498,7 @@
 {
         type: "text",
         title: "Ideas for Reflection",
-	body: "<ol><li>John Paul was studying literature and drama when his plans were changed by a German Invasion and his shift to manual labour.  Is there a time when you experienced a dramatic change to your plans? </li><li>Although an ordinary man, Jan Tyranowski had an enormous impact on the the young John Paul.  Have you ever met anyone who inspired you to grow in your spirituality?</li><li>Some might say John Paul’s later gifts as a leader, including his courage and compassion were shaped in these hard years. Do you think your own current struggles be forming you for something you can’t yet see?</li></ol>"
+	body: "<ol><li>John Paul was studying literature and drama when his plans were changed by a German Invasion and his shift to manual labour.  Is there a time when you experienced a dramatic change to your plans? </li><li>Although an ordinary man, Jan Tyranowski had an enormous impact on the the young John Paul.  Have you ever met anyone who inspired you to grow in your spirituality?</li><li>Some might say John Paul’s later gifts as a leader, including his courage and compassion were shaped in these hard years. Do you think your own current struggles be forming you for something greater?</li></ol>"
       }
     ];
 
