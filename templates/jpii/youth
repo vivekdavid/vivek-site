@@ -3,7 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>John Paul II's Childhood</title>
+
+<meta property="og:title" content="John Paul II's Youth" />
+  <meta property="og:description" content="A slide show showing John Paul II's life as a young man in his college years." />
+  <meta property="og:url" content="https://vivekdavid.com/jpii/youth"/>
+  <meta property="og:type" content="website" />
+</head>
+
+  <title>John Paul II's youth</title>
   <style>
     :root {
       --bg: #0a0a0c;
