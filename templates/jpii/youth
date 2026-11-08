@@ -393,11 +393,18 @@
 <body>
 
   <header class="topbar">
-    <a class="home" href="/" id="homeLink">← Home</a>
-    <div class="contents-wrap">
+    <a class="home" href="/" id="homeLink">← Home</a>     <div class="contents-wrap">
       <button type="button" class="contents-btn" id="contentsBtn" aria-expanded="false" aria-haspopup="true">
       </button>
+<div class="contents-wrap">
+      <button type="button" class="contents-btn" id="contentsBtn" aria-expanded="false" aria-haspopup="true">
+
+
+    <a class="home" href="/jpii">Contents </a>     <div class="contents-wrap">
       <div class="contents-menu" id="contentsMenu" role="menu"></div>
+    </div>
+
+      </div>
     </div>
   </header>
 
@@ -425,13 +432,13 @@
       },
    {
         type: "image",
-        src: "https://res.cloudinary.com/d3gizu6t/image/upload/v1793922516/karol-wojtyla.jpg",
-        title: "hiking"
+        src: "https://res.cloudinary.com/d3gizu6t/image/upload/v1794096712/ulani-1_image.jpg",
+        title: "Acting"
       },
       {
 	      type: "text",
      	title: "College", 
-	      body: "In 1938, John Paul and his father moved to his aunt's home in Krakow so he could attend Jagiellonian University.  He decided to pursue Polish literature and drama.  He loved the outdoors and enjoyed hiking and skiing."
+	      body: "In 1938, John Paul was admitted to Jagiellonian University in Krakow.   He decided to pursue Polish literature and drama.  John Paul and his father moved to his Aunt's home in Krakow so he could attend school.  He was in the city at the same time Saint Faustina was, (although it is unlikely that they met).  He loved the outdoors and continued to  enjoy hiking and skiing while in school."
       },
       {
         type: "image",
@@ -441,7 +448,7 @@
       {
         type: "text",
         title: "German invasion",
-        body: " In September of 1939, when John Paul was 19 years old, the Nazis invaded Poland.  Entire families were killed; children were used as target practice.  Jews, intellectuals, priests and religious were rounded up and sent to concentration camps.  Schools and libraries throughout Poland were closed in an effort to erase Polish culture.  The Nazis viewed Poles as an inferior race and intended to make the nation a source of uneducated manual labour. "
+        body: " In September of 1939, when John Paul was 19 years old, the Nazis invaded Poland.  The Germans killed entire families and used children as target practice.  Jews, intellectuals, priests and religious were rounded up and sent to concentration camps.  Schools and libraries throughout Poland were closed in an effort to erase Polish culture.  The Nazis viewed Poles as an inferior race and intended to make the nation a source of uneducated manual labour. "
 
       },
       {
@@ -451,7 +458,7 @@
       },
       {
         type: "text",
-        title: "Labourer",
+        title: "Hardship",
         body: "The Nazis drastically cut back on Polish military pensions, and so John Paul had to work to support himself and his father.  He took a job as a manual labourer in a limestone quarry.  He would walk 30 minutes to work wearing wooden shoes.  He worked outdoors even on the coldest winter days.  Some Polish professors held secret classes in their homes in defiance of the Nazis. John Paul would often attend these classes in the evenings after work."
       },
       {
@@ -462,29 +469,29 @@
       },
       {
         type: "text",
-        title: "Loss",
-        body: "John Paul’s father died shortly after the German invasion.  At age 20, he was alone in the world with no immediate family.  Around the same time started participating in the living rosary prayer group led by  Jan Tyranowski.   Jan was a simple man, an unmarried tailor who started each morning with 4 hours of prayer.  Because so many priests had been killed or put into concentration camps, lay leaders like Jan became important.  Jan became a formative mentor for John Paul, introducing him to the works of saints, including St. Louis de Montfort, whose work, 'true devotion to our Lady,' was a turning point in the life of John Paul."
+        title: "Living Rosary",
+        body: "John Paul’s father died shortly after the German invasion.  At age 20, he was alone in the world with no immediate family.  Around the same time he started participating in the living rosary prayer group led by a man named Jan Tyranowski.  Jan was an unmarried tailor who started each morning with 4 hours of prayer.  Because so many priests had been killed or put into concentration camps, lay leaders like Jan became important.  Jan became a formative mentor for John Paul, introducing him to the writtings of saints, including St. Louis de Montfort, whose work, 'True Devotion to Our Lady,' was a turning point in the life of John Paul."
       },
       {
         type: "image",
-        src: "https://res.cloudinary.com/d3gizu6t/image/upload/v1793320241/teen.webp",
+        src: "https://res.cloudinary.com/d3gizu6t/image/upload/v1794067651/jpii_student_days.webp",
         title: "Loneliness"
       },
       {
         type: "text",
-        title: "Loneliness",
-        body:"After the passing of his mother and brother, it was just John Paul II and his father.  They slept in the same room to deal with the loneliness.  They would wake up early and go to mass every morning before John Paul had to go to school.  Despite the early losses, young John Paul was a bright student and graduated top of his class.  He was the valedictorian of his high school." 
+        title: "Labouer",
+        body:" After a year of working at the quarry, John Paul was transferred to the Sovay chemical plant.  He worked 7 days a week with no rest days.   While working at the plant, he prayed whenever there was downtime.  He would get up early each morning to attend Mass.  He later said that he learned more from his 4 years of manual labour than from all his years in the classroom." 
       },
 
  {
         type: "image",
-        src: "https://upload.wikimedia.org/wikipedia/commons/5/5c/William-Adolphe_Bouguereau_The_Virgin_With_Angels.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original",
-        title: "Loneliness"
+        src: "https://res.cloudinary.com/d3gizu6t/image/upload/v1794067823/Stom__Matthias_-_Christ_Crowned_with_Thorns.jpg",
+        title: "John Paul during the Nazi occupation"
       },
 {
         type: "text",
         title: "Ideas for Reflection",
-	body: "<ol><li>When you're suffering, do you find yourself drawing closer to God or pulling away from Him?</li><li>JPII loved soccer, had friends, and was a good student.  How do we balance a deep relationship with God with the ordinary joys and responsibilities of everyday life?</li><li>John Paul's father sacrificed his career ambitions to take care of his wife.  Have you ever witnessed someone put the needs of a loved one ahead of their own dreams or ambitions?</li></ol>"
+	body: "<ol><li>John Paul was studying literature and drama when his plans were changed by a German Invasion and his shift to manual labour.  Is there a time when you experienced a dramatic change to your plans? </li><li>Although an ordinary man, Jan Tyranowski had an enormous impact on the the young John Paul.  Have you ever met anyone who inspired you to grow in your spirituality?</li><li>Some might say John Paul’s later gifts as a leader, including his courage and compassion were shaped in these hard years. Do you think your own current struggles be forming you for something you can’t yet see?</li></ol>"
       }
     ];
 
