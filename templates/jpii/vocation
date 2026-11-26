@@ -1,0 +1,1159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ 
+ <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://vivekdavid.com/jpii/vocation" />
+  <meta property="og:title" content="Karol Wojtyła — Pope John Paul II: His Vocation" />
+  <meta property="og:description" content="A scrollable journey through John Paul's journey to the priesthood." />
+
+  <title>Karol Wojtyła — Pope John Paul II: His Vocation </title>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    /* ========== CSS Variables ========== */
+    :root {
+      --papal-gold: #D4AF37;
+      --papal-light-gold: #F3E5AB;
+      --papal-dark-gold: #997A15;
+      --papal-crimson: #800020;
+      --papal-dark: #0D0D0E;
+      --papal-slate: #1A1A1E;
+      --papal-cream: #FDFBF7;
+      --font-serif: "Cormorant Garamond", serif;
+      --font-sans: "Inter", sans-serif;
+    }
+
+    /* ========== Reset & Base ========== */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html, body {
+      height: 100%;
+      overflow: hidden;
+      font-family: var(--font-sans);
+      background-color: var(--papal-dark);
+      color: var(--papal-cream);
+    }
+
+    ::selection {
+      background-color: var(--papal-gold);
+      color: var(--papal-dark);
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    button {
+      font-family: inherit;
+      cursor: pointer;
+      border: none;
+      background: none;
+    }
+
+    /* ========== Scroll Snap Container ========== */
+    .snap-container {
+      height: 100vh;
+      overflow-y: scroll;
+      scroll-snap-type: y mandatory;
+      scroll-behavior: smooth;
+    }
+
+    .snap-section {
+      scroll-snap-align: start;
+      scroll-snap-stop: normal;
+      height: 100vh;
+      width: 100vw;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Custom Scrollbar */
+    .snap-container::-webkit-scrollbar {
+      width: 6px;
+    }
+    .snap-container::-webkit-scrollbar-track {
+      background: rgba(0, 0, 0, 0.4);
+    }
+    .snap-container::-webkit-scrollbar-thumb {
+      background: var(--papal-gold);
+      border-radius: 3px;
+    }
+
+    /* ========== Ken Burns Animation ========== */
+    .ken-burns {
+      animation: kenburns 25s ease-in-out infinite alternate;
+    }
+
+    @keyframes kenburns {
+      0% { transform: scale(1); }
+      100% { transform: scale(1.06); }
+    }
+
+    /* ========== Reveal Animations ========== */
+    .reveal-element {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1),
+                  transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .reveal-element.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .delay-1 { transition-delay: 0.15s; }
+    .delay-2 { transition-delay: 0.3s; }
+    .delay-3 { transition-delay: 0.45s; }
+    .delay-4 { transition-delay: 0.6s; }
+
+    /* ========== Fixed Header ========== */
+    .site-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 50;
+      padding: 1.25rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      pointer-events: none;
+    }
+
+    .header-badge {
+      pointer-events: auto;
+      background: var(--papal-light-gold);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      padding: 0.375rem 1rem;
+      border-radius: 9999px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .header-badge .logo {
+      font-family: var(--font-serif);
+      font-size: 1.125rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      font-weight: 600;
+      color: var(--papal-light-gold);
+    }
+
+    .header-label {
+      pointer-events: auto;
+      font-size: 0.75rem;
+      font-family: var(--font-sans);
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #d1d5db;
+      background: rgba(0, 0, 0, 0.4);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      padding: 0.375rem 1rem;
+      border-radius: 9999px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      display: none;
+    }
+
+    @media (min-width: 640px) {
+      .header-label {
+        display: block;
+      }
+    }
+
+    /* ========== Section Navigation Dots ========== */
+    .section-nav {
+      position: fixed;
+      right: 1rem;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 40;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      pointer-events: auto;
+    }
+
+    .nav-dot {
+      width: 0.625rem;
+      height: 0.625rem;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.3);
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .nav-dot:hover {
+      background: rgba(255, 255, 255, 0.6);
+    }
+
+    .nav-dot.active {
+      background: var(--papal-gold);
+      transform: scale(1.25);
+    }
+
+    /* ========== Shared Section Styles ========== */
+    .section-bg-image {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      overflow: hidden;
+    }
+
+    .section-bg-image img {
+      width: 100%;
+      height: 100%;
+object-fit: contain;   /* ← changed from cover */
+  background-color: #000; /* optional safety */
+
+      <!-- object-fit: cover; -->
+    }
+
+    .gradient-overlay-bottom {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.4));
+    }
+
+    .gradient-overlay-soft {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.3), transparent);
+    }
+
+    .gradient-overlay-center {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(0, 0, 0, 0.4), transparent, rgba(0, 0, 0, 0.8));
+    }
+
+    .section-content {
+      position: relative;
+      z-index: 10;
+    }
+
+    /* ========== Section 1: Hero ========== */
+    .hero-section {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hero-content {
+      text-align: center;
+      padding: 0 1.5rem;
+      max-width: 56rem;
+      margin: 0 auto;
+      filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.3));
+    }
+
+    .hero-eyebrow {
+      color: var(--papal-gold);
+      font-family: var(--font-sans);
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      font-size: 0.75rem;
+      margin-bottom: 0.75rem;
+      font-weight: 600;
+      text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+    }
+
+    @media (min-width: 768px) {
+      .hero-eyebrow {
+        font-size: 0.875rem;
+      }
+    }
+
+    .hero-title {
+      font-family: var(--font-serif);
+      font-size: 3.75rem;
+      font-weight: 600;
+      letter-spacing: -0.025em;
+      color: white;
+      margin-bottom: 1rem;
+      line-height: 1;
+    }
+
+    @media (min-width: 768px) {
+      .hero-title {
+        font-size: 6rem;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .hero-title {
+        font-size: 8rem;
+      }
+    }
+
+    .hero-subtitle {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: 1.5rem;
+      color: var(--papal-light-gold);
+      font-weight: 300;
+      max-width: 42rem;
+      margin: 0 auto;
+    }
+
+    @media (min-width: 768px) {
+      .hero-subtitle {
+        font-size: 2.25rem;
+      }
+    }
+
+    .scroll-indicator {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 10;
+      text-align: center;
+      cursor: pointer;
+      opacity: 0.8;
+      transition: opacity 0.2s;
+    }
+
+    .scroll-indicator:hover {
+      opacity: 1;
+    }
+
+    .scroll-indicator span {
+      display: block;
+      font-size: 0.625rem;
+      text-transform: uppercase;
+      letter-spacing: 0.25em;
+      color: var(--papal-cream);
+      margin-bottom: 0.5rem;
+    }
+
+    .scroll-indicator i {
+      color: var(--papal-gold);
+      animation: bounce 1s infinite;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(6px); }
+    }
+
+    /* ========== Section 2: Early Life Text ========== */
+    .text-section {
+      background-color: var(--papal-slate);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 1.5rem;
+    }
+
+    @media (min-width: 768px) {
+      .text-section {
+        padding: 0 3rem;
+      }
+    }
+
+    .text-content {
+      max-width: 48rem;
+      margin: 0 auto;
+      text-align: center;
+      position: relative;
+      z-index: 10;
+    }
+
+    .chapter-label {
+      color: var(--papal-gold);
+      font-family: var(--font-sans);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.3em;
+      margin-bottom: 1rem;
+      display: block;
+      font-weight: 600;
+    }
+
+    .section-heading {
+      font-family: var(--font-serif);
+      font-size: 2.25rem;
+      color: var(--papal-cream);
+      margin-bottom: 2rem;
+      line-height: 1.3;
+    }
+
+    @media (min-width: 768px) {
+      .section-heading {
+        font-size: 3.75rem;
+      }
+    }
+
+    .gold-divider {
+      width: 3rem;
+      height: 1px;
+      background: var(--papal-gold);
+      margin: 0 auto 2rem;
+    }
+
+    .body-text {
+      font-family: var(--font-sans);
+      font-size: 1rem;
+      color: #d1d5db;
+      line-height: 1.7;
+      font-weight: 300;
+      margin-bottom: 1.5rem;
+    }
+
+    @media (min-width: 768px) {
+      .body-text {
+        font-size: 1.25rem;
+      }
+    }
+
+    .quote-text {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: 1.125rem;
+      color: rgba(243, 229, 171, 0.9);
+      font-weight: 300;
+    }
+
+    @media (min-width: 768px) {
+      .quote-text {
+        font-size: 1.5rem;
+      }
+    }
+
+    /* ========== Section 3 & 7: Image Overlay Sections ========== */
+    .image-overlay-section {
+      display: flex;
+      align-items: flex-end;
+      justify-content: flex-start;
+      padding-bottom: 5rem;
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
+
+    @media (min-width: 768px) {
+      .image-overlay-section {
+        padding-bottom: 6rem;
+        padding-left: 5rem;
+        padding-right: 5rem;
+      }
+    }
+
+    .overlay-content {
+      max-width: 56rem;
+      text-align: left;
+    }
+
+    .overlay-label {
+      color: var(--papal-gold);
+      font-family: var(--font-sans);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.3em;
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+    }
+
+    .overlay-label.danger {
+      color: #fca5a5;
+    }
+
+    .overlay-title {
+      font-family: var(--font-serif);
+      font-size: 2rem;
+      color: white;
+      font-weight: 600;
+      line-height: 1;
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+    }
+
+    @media (min-width: 768px) {
+      .overlay-title {
+        font-size: 4.5rem;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .overlay-title {
+        font-size: 6rem;
+      }
+    }
+
+    /* ========== Section 4: Diplomat / Two-column ========== */
+    .two-col-section {
+      background-color: var(--papal-dark);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 1.5rem;
+    }
+
+    @media (min-width: 768px) {
+      .two-col-section {
+        padding: 0 3rem;
+      }
+    }
+
+    .two-col-grid {
+      max-width: 56rem;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    @media (min-width: 768px) {
+      .two-col-grid {
+        grid-template-columns: 5fr 7fr;
+        gap: 2rem;
+      }
+    }
+
+    .two-col-left {
+      text-align: left;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      padding-bottom: 1.5rem;
+    }
+
+    @media (min-width: 768px) {
+      .two-col-left {
+        border-bottom: none;
+        border-right: 1px solid rgba(255, 255, 255, 0.1);
+        padding-bottom: 0;
+        padding-right: 2rem;
+      }
+    }
+
+    .two-col-left h3 {
+      font-family: var(--font-serif);
+      font-size: 1.875rem;
+      color: var(--papal-cream);
+      line-height: 1.2;
+      margin-bottom: 1rem;
+    }
+
+    @media (min-width: 768px) {
+      .two-col-left h3 {
+        font-size: 3rem;
+      }
+    }
+
+    .two-col-left p {
+      font-family: var(--font-sans);
+      font-size: 0.875rem;
+      color: #9ca3af;
+    }
+
+    .two-col-right {
+      text-align: left;
+    }
+
+    .two-col-right .body-text {
+      font-size: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    @media (min-width: 768px) {
+      .two-col-right .body-text {
+        font-size: 1.125rem;
+      }
+    }
+
+    .blockquote {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: 1.125rem;
+      color: var(--papal-light-gold);
+      border-left: 2px solid var(--papal-gold);
+      padding-left: 1rem;
+      padding-top: 0.25rem;
+      padding-bottom: 0.25rem;
+    }
+
+    @media (min-width: 768px) {
+      .blockquote {
+        font-size: 1.5rem;
+      }
+    }
+
+    /* ========== Section 5: Pilgrim Pope (centered image) ========== */
+    .centered-image-section {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 0 1.5rem;
+    }
+
+    .centered-image-content {
+      max-width: 56rem;
+    }
+
+    .centered-image-content .overlay-title {
+      font-size: 3rem;
+    }
+
+    @media (min-width: 768px) {
+      .centered-image-content .overlay-title {
+        font-size: 5rem;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .centered-image-content .overlay-title {
+        font-size: 6rem;
+      }
+    }
+
+    /* ========== Section 6: Bridge Builder Cards ========== */
+    .cards-section {
+      background-color: var(--papal-slate);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 1.5rem;
+    }
+
+    @media (min-width: 768px) {
+      .cards-section {
+        padding: 0 3rem;
+      }
+    }
+
+    .cards-content {
+      max-width: 48rem;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .cards-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+      text-align: left;
+      margin-bottom: 2rem;
+    }
+
+    @media (min-width: 768px) {
+      .cards-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .info-card {
+      background: rgba(0, 0, 0, 0.3);
+      padding: 1.5rem;
+      border-radius: 0.5rem;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .info-card h4 {
+      font-family: var(--font-serif);
+      font-size: 1.25rem;
+      color: var(--papal-gold);
+      margin-bottom: 0.5rem;
+    }
+
+    .info-card p {
+      font-family: var(--font-sans);
+      font-size: 0.875rem;
+      color: #d1d5db;
+      line-height: 1.6;
+      font-weight: 300;
+    }
+
+    .closing-quote {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: 1.25rem;
+      color: var(--papal-light-gold);
+    }
+
+    /* ========== Section 8: Final Chapter ========== */
+    .final-section {
+      background-color: var(--papal-dark);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 1.5rem;
+    }
+
+    @media (min-width: 768px) {
+      .final-section {
+        padding: 0 3rem;
+      }
+    }
+
+    .final-content {
+      max-width: 48rem;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .canonization-box {
+      padding: 2rem;
+      border: 1px solid rgba(212, 175, 55, 0.2);
+      background: rgba(26, 26, 30, 0.4);
+      border-radius: 0.75rem;
+      max-width: 36rem;
+      margin: 0 auto;
+    }
+
+    .canonization-box .title {
+      font-family: var(--font-serif);
+      font-size: 1.5rem;
+      color: var(--papal-gold);
+      margin-bottom: 0.5rem;
+    }
+
+    .canonization-box .date {
+      font-family: var(--font-sans);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: #9ca3af;
+      margin-bottom: 1rem;
+    }
+
+    .canonization-box .desc {
+      font-family: var(--font-sans);
+      font-size: 0.875rem;
+      color: #d1d5db;
+      font-weight: 300;
+    }
+
+    /* ========== Section 9: Epilogue ========== */
+    .epilogue-section {
+      background-color: #000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 1.5rem;
+      text-align: center;
+    }
+
+    .epilogue-content {
+      max-width: 42rem;
+      margin: 0 auto;
+    }
+
+    .epilogue-icon {
+      color: var(--papal-gold);
+      font-size: 1.875rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .epilogue-title {
+      font-family: var(--font-serif);
+      font-size: 1.875rem;
+      color: var(--papal-cream);
+      margin-bottom: 1.5rem;
+    }
+
+    @media (min-width: 768px) {
+      .epilogue-title {
+        font-size: 3rem;
+      }
+    }
+
+    .epilogue-text {
+      font-family: var(--font-sans);
+      font-size: 0.875rem;
+      color: #9ca3af;
+      margin-bottom: 2rem;
+      max-width: 28rem;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .return-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      border: 1px solid var(--papal-gold);
+      color: var(--papal-gold);
+      padding: 0.75rem 1.5rem;
+      border-radius: 9999px;
+      text-transform: uppercase;
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
+      font-weight: 600;
+      transition: background-color 0.2s, color 0.2s;
+    }
+
+    .return-btn:hover {
+      background-color: var(--papal-gold);
+      color: var(--papal-dark);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Fixed Minimal Navigation Header -->
+  <header class="site-header">
+    <div class="header-badge">
+	    <span class="logo"><a href=../>JPII</a></span>
+    </div>
+    <div class="header-label">
+   His Vocation   
+    </div>
+  </header>
+
+  <!-- Progress Bar Indicators (Right side) -->
+  <nav id="section-nav" class="section-nav" aria-label="Section navigation">
+    <!-- Generated dynamically via JS -->
+  </nav>
+
+  <!-- Main Scroll Container -->
+  <div class="snap-container" id="scroll-container">
+
+    <!-- ================= SECTION 1: HERO ================= -->
+    <section class="snap-section hero-section" id="sec-1">
+      <div class="section-bg-image">
+                <div class="gradient-overlay-bottom"></div>
+      </div>
+
+      <div class="section-content hero-content">
+        <p class="reveal-element hero-eyebrow">
+       karol Wojtyla 
+	</p>
+        <h1 class="reveal-element delay-1 hero-title">
+       Pope John Paul II 
+	</h1>
+        <p class="reveal-element delay-2 hero-subtitle">
+       	A journey through his vocation   
+	</p>
+      </div>
+
+      <div class="scroll-indicator" onclick="scrollToNext(1)" role="button" tabindex="0" aria-label="Scroll to next section">
+        <span>Scroll Down</span>
+        <i class="fa-solid fa-chevron-down"></i>
+      </div>
+    </section>
+
+    <!-- ================= SECTION 2: EARLY LIFE ================= -->
+    <section class="snap-section text-section" id="sec-2">
+      <div class="text-content">
+        <span class="reveal-element chapter-label">Chapter I</span>
+        <h2 class="reveal-element delay-1 section-heading">
+         Rhapsodic Theater  
+        </h2>
+        <div class="gold-divider reveal-element delay-2"></div>
+        <p class="reveal-element delay-2 body-text">
+ The Nazis set out to destroy Polish culture, banning all cultural and artistic activity. In response, John Paul co-founded the Rhapsodic Theatre with some friends. It was an underground company that performed in secret, often in people's homes. It was during this time that he first began to consider the priesthood. 
+	</p>
+        <!-- <p class="reveal-element delay-3 quote-text"> -->
+        <!--   "Work in a chemical quarry taught me human dignity; secret theater preserved our national culture." -->
+        <!-- </p> -->
+      </div>
+    </section>
+
+    <!-- ================= SECTION 3: 1978 ELECTION ================= -->
+    <section class="snap-section image-overlay-section" id="sec-3">
+      <div class="section-bg-image">
+        <img 
+          src="https://res.cloudinary.com/d3gizu6t/image/upload/v1794273232/young_karol.jpg" 
+          alt="Vatican Square and St Peters" 
+          class="ken-burns"
+	  style="object-position: center 25%;"
+        />
+        <div class="gradient-overlay-soft"></div>
+      </div>
+
+      <div class="section-content overlay-content">
+        <!-- <span class="reveal-element overlay-label">October 16, 1978</span> -->
+        <h2 class="reveal-element delay-1 overlay-title">
+        Young Actor   
+        </h2>
+      </div>
+    </section>
+
+    <!-- ================= SECTION 4: DIPLOMAT ================= -->
+     <section class="snap-section text-section" id="sec-4">
+      <div class="text-content">
+        <span class="reveal-element chapter-label">Chapter I</span>
+        <h2 class="reveal-element delay-1 section-heading">
+       Priesthood 
+	</h2>
+        <div class="gold-divider reveal-element delay-2"></div>
+        <p class="reveal-element delay-2 body-text">
+As the occupation drew on, John Paul began to think more and more about the priesthood. This desire was shaped partly by his father's death. He was also moved by the sacrifice of the many young Poles who gave their lives resisting the Nazis. His friends at the theatre were not pleased. They felt it was a waste of his talent. One told him he couldn't solve the world's problems by locking himself in a monastery and praying. Despite this, in 1942, at the age of 22, John Paul approached the archbishop of Kraków and declared he wanted to be a priest.
+
+	</p>
+        <!-- <p class="reveal-element delay-3 quote-text"> -->
+        <!--   "Work in a chemical quarry taught me human dignity; secret theater preserved our national culture." -->
+        <!-- </p> -->
+      </div>
+    </section>
+
+   
+
+    <!-- ================= SECTION 5: PILGRIM POPE ================= -->
+     <section class="snap-section image-overlay-section" id="sec-5">
+      <div class="section-bg-image">
+        <img 
+          src="https://res.cloudinary.com/d3gizu6t/image/upload/v1795399182/seminarian.jpg" 
+          alt="warsaw uprsing" 
+          class="ken-burns"
+	  style="object-position: center 25%;"
+        />
+        <div class="gradient-overlay-soft"></div>
+      </div>
+
+      <div class="section-content overlay-content">
+        <span class="reveal-element overlay-label">John Paul pictured in center</span>
+        <h2 class="reveal-element delay-1 overlay-title">
+		Seminarians
+	</h2>
+      </div>
+    </section>
+
+
+    <!-- ================= SECTION 6: BRIDGE BUILDER ================= -->
+      <section class="snap-section text-section" id="sec-6">
+      <div class="text-content">
+        <span class="reveal-element chapter-label">Chapter I</span>
+        <h2 class="reveal-element delay-1 section-heading">
+      Purpose  
+	</h2>
+        <div class="gold-divider reveal-element delay-2"></div>
+        <p class="reveal-element delay-2 body-text">
+One day, while walking home from the Solvay chemical plant, John Paul was hit by a Nazi truck. The driver left him unconscious and bleeding on the road. He spent two weeks recovering in a hospital room overlooking a Carmelite monastery. A few months later, Nazi troops stormed Krakow and arrested 8,000 men in revenge for the Warsaw Uprising. John Paul was praying in the basement when the SS raided his home. They walked right by the basement door without opening it. These incidents led John Paul to believe he had been spared for a reason.
+
+
+	</p>
+        <p class="reveal-element delay-3 quote-text">
+          "I know it was not mere chance.  Amid the overwhelming evil of the war, everything in my own personal life was tending towards the good of my vocation"
+        </p>
+      </div>
+    </section>
+
+ 
+    <!-- ================= SECTION 7: FORGIVENESS ================= -->
+    <section class="snap-section image-overlay-section" id="sec-7">
+      <div class="section-bg-image">
+        <img 
+          src="https://res.cloudinary.com/d3gizu6t/image/upload/v1795397575/german_opression.jpg" 
+          alt="Candlelight flame" 
+          class="ken-burns"
+        />
+        <div class="gradient-overlay-soft"></div>
+      </div>
+
+      <div class="section-content overlay-content">
+        <span class="reveal-element overlay-label">Polish priests and civilians awaiting execution</span>
+        <h2 class="reveal-element delay-1 overlay-title">
+         Nazi Oppression 
+        </h2>
+      </div>
+    </section>
+
+    <!-- ================= SECTION 8: SUFFERING & LEGACY ================= -->
+       <section class="snap-section text-section" id="sec-8">
+      <div class="text-content">
+        <span class="reveal-element chapter-label">Chapter I</span>
+        <h2 class="reveal-element delay-1 section-heading">
+       Seminary  
+	</h2>
+        <div class="gold-divider reveal-element delay-2"></div>
+        <p class="reveal-element delay-2 body-text">
+
+The Nazis had banned the seminaries, so John Paul's training was conducted in secret, in private homes and the archbishop's residence. Many seminarians were executed, or died in concentration camps. On November 1, 1946, at the age of 26, John Paul was ordained to the priesthood. The next day, on All Souls' Day, he celebrated his first Mass. He offered it for his deceased family
+	</p>
+        <!-- <p class="reveal-element delay-3 quote-text"> -->
+        <!--   "Work in a chemical quarry taught me human dignity; secret theater preserved our national culture." -->
+        <!-- </p> -->
+      </div>
+    </section>
+    <!-- ================= SECTION 10: 1978 ELECTION ================= -->
+    <section class="snap-section image-overlay-section" id="sec-9">
+      <div class="section-bg-image">
+        <img 
+          src="https://res.cloudinary.com/d3gizu6t/image/upload/v1795399778/consecration.jpg" 
+          alt="Young Father Wojtyla" 
+          class="ken-burns"
+	  style="object-position: center 25%;"
+        />
+        <div class="gradient-overlay-soft"></div>
+      </div>
+
+      <div class="section-content overlay-content">
+        <!-- <span class="reveal-element overlay-label">October 16, 1978</span> -->
+        <h2 class="reveal-element delay-1 overlay-title">
+        Young Priest 
+        </h2>
+      </div>
+    </section>
+
+
+    <!-- ================= SECTION 10: SUFFERING & LEGACY ================= -->
+       <section class="snap-section text-section" id="sec-10">
+      <div class="text-content">
+        <span class="reveal-element chapter-label">Chapter I</span>
+        <h2 class="reveal-element delay-1 section-heading">
+      Reflection Questions 
+	</h2>
+        <div class="gold-divider reveal-element delay-2"></div>
+        <p class="reveal-element delay-2 body-text">
+	<ol>
+		<li>John Paul joined an underground theatre and later entered seminary in secret, knowing each time it could cost him his life. Have you or someone you know ever taken a significant risk because of a belief or set of values?</li>
+		<li>John Paul's brushes with death convinced him that God had spared him for a reason. Have you ever experienced something that made you wonder whether there was a greater purpose behind it?</li>
+	<li>John Paul offered his first Mass for his deceased family. Is there anyone in your life who continues to influence you despite having passed? 
+	</li>
+	</ol>
+	</p>
+        <!-- <p class="reveal-element delay-3 quote-text"> -->
+        <!--   "Work in a chemical quarry taught me human dignity; secret theater preserved our national culture." -->
+        <!-- </p> -->
+      </div>
+    </section>
+
+
+    <!-- ================= SECTION 11: EPILOGUE ================= -->
+    <section class="snap-section epilogue-section" id="sec-11">
+      <div class="epilogue-content">
+        <i class="fa-solid fa-cross epilogue-icon reveal-element"></i>
+        <h2 class="reveal-element delay-1 epilogue-title">
+          "Do not be afraid. Open wide the doors for Christ."
+        </h2>
+        <p class="reveal-element delay-2 epilogue-text">
+          Thank you for exploring this scrollytelling memorial dedicated to Pope John Paul II.
+        </p>
+   
+
+	<div class="epilogue-buttons">
+  <a href="/jpii/" class="reveal-element delay-3 return-btn">
+    <i class="fa-solid fa-list"></i> Table of Contents
+  </a>
+</div>
+<br/><br/>
+
+
+		<button onclick="scrollToTop()" class="reveal-element delay-3 return-btn">
+    <i class="fa-solid fa-arrow-up"></i> Return to Beginning
+  </button>
+
+       </div>
+    </section>
+
+
+  </div>
+
+  <script>
+    // State management
+    const totalSections =11;
+    const container = document.getElementById('scroll-container');
+    const navContainer = document.getElementById('section-nav');
+
+    // Generate right-side section dots
+    for (let i = 1; i <= totalSections; i++) {
+      const dot = document.createElement('button');
+      dot.className = 'nav-dot' + (i === 1 ? ' active' : '');
+      dot.setAttribute('aria-label', `Go to section ${i}`);
+      dot.onclick = () => {
+        document.getElementById(`sec-${i}`).scrollIntoView({ behavior: 'smooth' });
+      };
+      dot.id = `nav-dot-${i}`;
+      navContainer.appendChild(dot);
+    }
+
+    // Scroll to next helper
+    function scrollToNext(currentSec) {
+      const nextSec = currentSec + 1;
+      if (nextSec <= totalSections) {
+        document.getElementById(`sec-${nextSec}`).scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+
+    // Scroll to top
+    function scrollToTop() {
+      document.getElementById('sec-1').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    // Intersection Observer for animations and dots active state
+    const observerOptions = {
+      root: container,
+      threshold: 0.5
+    };
+
+    const sectionObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const id = entry.target.id;
+          const secNum = parseInt(id.replace('sec-', ''));
+
+          // Update navigation dots
+          for (let i = 1; i <= totalSections; i++) {
+            const dot = document.getElementById(`nav-dot-${i}`);
+            if (i === secNum) {
+              dot.classList.add('active');
+            } else {
+              dot.classList.remove('active');
+            }
+          }
+
+          // Trigger internal element reveals
+          const reveals = entry.target.querySelectorAll('.reveal-element');
+          reveals.forEach(el => el.classList.add('active'));
+        }
+      });
+    }, observerOptions);
+
+    // Observe all sections
+    document.querySelectorAll('.snap-section').forEach(sec => {
+      sectionObserver.observe(sec);
+    });
+ 
+// Force one-section-at-a-time with arrow keys / PageUp / PageDown
+document.addEventListener('keydown', (e) => {
+  const keys = ['ArrowDown', 'ArrowUp', 'PageDown', 'PageUp', ' '];
+  if (!keys.includes(e.key)) return;
+
+  // Don't steal keys when user is typing in an input/textarea
+  if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+
+  e.preventDefault();
+
+  // Figure out which section is currently most visible
+  let current = 1;
+  document.querySelectorAll('.snap-section').forEach((sec, i) => {
+    const rect = sec.getBoundingClientRect();
+    if (rect.top <= window.innerHeight / 2 && rect.bottom >= window.innerHeight / 2) {
+      current = i + 1;
+    }
+  });
+
+  let target = current;
+
+  if (e.key === 'ArrowDown' || e.key === 'PageDown' || e.key === ' ') {
+    target = Math.min(current + 1, totalSections);
+  } else if (e.key === 'ArrowUp' || e.key === 'PageUp') {
+    target = Math.max(current - 1, 1);
+  }
+
+  if (target !== current) {
+    document.getElementById(`sec-${target}`).scrollIntoView({ behavior: 'smooth' });
+  }
+});
+
+  </script>
+</body>
+</html>

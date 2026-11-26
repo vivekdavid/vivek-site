@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Karol Wojtyła — Pope John Paul II: A Scrollytelling Journey</title>
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            serif: ['"Cormorant Garamond"', 'serif'],
+            sans: ['"Inter"', 'sans-serif'],
+          },
+          colors: {
+            papal: {
+              gold: '#D4AF37',
+              lightGold: '#F3E5AB',
+              darkGold: '#997A15',
+              crimson: '#800020',
+              dark: '#0D0D0E',
+              slate: '#1A1A1E',
+              cream: '#FDFBF7'
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Mandatory CSS Scroll Snap */
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+      font-family: 'Inter', sans-serif;
+      background-color: #0D0D0E;
+      color: #FDFBF7;
+    }
+
+    .snap-container {
+      height: 100vh;
+      overflow-y: scroll;
+      scroll-snap-type: y mandatory;
+      scroll-behavior: smooth;
+    }
+
+    .snap-section {
+      scroll-snap-align: start;
+      scroll-snap-stop: always;
+      height: 100vh;
+      width: 100vw;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Subtle Ken Burns Zoom Animation for Images */
+    .ken-burns {
+      animation: kenburns 25s ease-in-out infinite alternate;
+    }
+
+    @keyframes kenburns {
+      0% { transform: scale(1); }
+      100% { transform: scale(1.06); }
+    }
+
+    /* Custom Scrollbar */
+    .snap-container::-webkit-scrollbar {
+      width: 6px;
+    }
+    .snap-container::-webkit-scrollbar-track {
+      background: rgba(0, 0, 0, 0.4);
+    }
+    .snap-container::-webkit-scrollbar-thumb {
+      background: #D4AF37;
+      border-radius: 3px;
+    }
+
+    /* Text Reveal Animations */
+    .reveal-element {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1), transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .reveal-element.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .delay-1 { transition-delay: 0.15s; }
+    .delay-2 { transition-delay: 0.3s; }
+    .delay-3 { transition-delay: 0.45s; }
+  </style>
+</head>
+<body class="bg-papal-dark text-papal-cream selection:bg-papal-gold selection:text-papal-dark">
+
+  <!-- Fixed Minimal Navigation Header (No Audio Button) -->
+  <header class="fixed top-0 left-0 right-0 z-50 px-6 py-5 flex justify-between items-center pointer-events-none">
+    <div class="pointer-events-auto bg-black/40 backdrop-blur-md px-4 py-1.5 rounded-full border border-white/10">
+      <span class="font-serif text-lg tracking-widest uppercase font-semibold text-papal-lightGold">JPII</span>
+    </div>
+    <div class="pointer-events-auto text-xs font-sans tracking-widest text-gray-300 uppercase hidden sm:block bg-black/40 backdrop-blur-md px-4 py-1.5 rounded-full border border-white/10">
+      Interactive Biography
+    </div>
+  </header>
+
+  <!-- Progress Bar Indicators (Right side) -->
+  <nav id="section-nav" class="fixed right-4 top-1/2 -translate-y-1/2 z-40 flex flex-col gap-3 pointer-events-auto">
+    <!-- Generated dynamically via JS -->
+  </nav>
+
+  <!-- Main Scroll Container -->
+  <div class="snap-container" id="scroll-container">
+
+    <!-- ================= SECTION 1: HERO IMAGE (CRISP PHOTO + TITLE) ================= -->
+    <section class="snap-section flex items-center justify-center" id="sec-1">
+      <div class="absolute inset-0 z-0 overflow-hidden">
+        <img 
+          src="https://images.unsplash.com/photo-1548625361-1869e5d713c7?q=80&w=2000&auto=format&fit=crop" 
+          alt="St. Peter's Basilica Dome" 
+          class="w-full h-full object-cover ken-burns"
+        />
+        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-black/40"></div>
+      </div>
+
+      <div class="relative z-10 text-center px-6 max-w-4xl mx-auto drop-shadow-lg">
+        <p class="reveal-element text-papal-gold font-sans tracking-[0.3em] uppercase text-xs md:text-sm mb-3 font-semibold drop-shadow">
+          A Scrollytelling Journey
+        </p>
+        <h1 class="reveal-element delay-1 font-serif text-6xl md:text-8xl lg:text-9xl font-semibold tracking-tight text-white mb-4 leading-none">
+          Karol Wojtyła
+        </h1>
+        <p class="reveal-element delay-2 font-serif italic text-2xl md:text-4xl text-papal-lightGold font-light max-w-2xl mx-auto">
+          Pope Saint John Paul II
+        </p>
+      </div>
+
+      <!-- Scroll Down Indicator -->
+      <div class="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 text-center cursor-pointer opacity-80 hover:opacity-100 transition" onclick="scrollToNext(1)">
+        <span class="block text-[10px] uppercase tracking-[0.25em] text-papal-cream mb-2">Scroll Down</span>
+        <i class="fa-solid fa-chevron-down text-papal-gold animate-bounce"></i>
+      </div>
+    </section>
+
+    <!-- ================= SECTION 2: TEXT 1 (EARLY LIFE) ================= -->
+    <section class="snap-section bg-papal-slate flex items-center justify-center px-6 md:px-12" id="sec-2">
+      <div class="max-w-3xl mx-auto text-center relative z-10">
+        <span class="reveal-element text-papal-gold font-sans text-xs uppercase tracking-[0.3em] mb-4 block font-semibold">Chapter I</span>
+        <h2 class="reveal-element delay-1 font-serif text-4xl md:text-6xl text-papal-cream mb-8 leading-snug">
+          Forged in Tragedy &amp; Faith
+        </h2>
+        <div class="w-12 h-[1px] bg-papal-gold mx-auto mb-8 reveal-element delay-2"></div>
+        <p class="reveal-element delay-2 font-sans text-base md:text-xl text-gray-300 leading-relaxed font-light mb-6">
+          Born in Wadowice, Poland in 1920, young Karol lost his mother, brother, and father by age twenty. Surrounded by the shadow of World War II and totalitarian occupation, his vocation was forged not in comfort, but in clandestine underground seminaries.
+        </p>
+        <p class="reveal-element delay-3 font-serif italic text-lg md:text-2xl text-papal-lightGold/90 font-light">
+          "Work in a chemical quarry taught me human dignity; secret theater preserved our national culture."
+        </p>
+      </div>
+    </section>
+
+    <!-- ================= SECTION 3: IMAGE 2 (CRISP PHOTO + TITLE OVERLAY) ================= -->
+    <section class="snap-section flex items-end justify-start pb-20 md:pb-24 px-8 md:px-20" id="sec-3">
+      <div class="absolute inset-0 z-0 overflow-hidden">
+        <img 
+          src="https://images.unsplash.com/photo-1543783207-ec64e4d95325?q=80&w=2000&auto=format&fit=crop" 
+          alt="Vatican Square and St Peters" 
+          class="w-full h-full object-cover ken-burns"
+        />
+        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent"></div>
+      </div>
+
+      <div class="relative z-10 max-w-4xl text-left">
+        <span class="reveal-element text-papal-gold font-sans text-xs uppercase tracking-[0.3em] block mb-2 font-semibold">October 16, 1978</span>
+        <h2 class="reveal-element delay-1 font-serif text-5xl md:text-7xl lg:text-8xl text-white font-semibold leading-none drop-shadow-md">
+          The 1978 Election
+        </h2>
+      </div>
+    </section>
+
+    <!-- ================= SECTION 4: TEXT 2 (THE DIPLOMAT & FREEDOM) ================= -->
+    <section class="snap-section bg-papal-dark flex items-center justify-center px-6 md:px-12" id="sec-4">
+      <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+        <div class="md:col-span-5 text-left border-b md:border-b-0 md:border-r border-white/10 pb-6 md:pb-0 md:pr-8">
+          <span class="reveal-element text-papal-gold font-sans text-xs uppercase tracking-[0.3em] block mb-2 font-semibold">Chapter II</span>
+          <h3 class="reveal-element delay-1 font-serif text-3xl md:text-5xl text-papal-cream leading-tight mb-4">
+            Dismantling the Iron Curtain
+          </h3>
+          <p class="reveal-element delay-2 font-sans text-sm text-gray-400">
+            His 1979 return to Communist Poland ignited the moral revolution of the Solidarity movement.
+          </p>
+        </div>
+        <div class="md:col-span-7 text-left space-y-4">
+          <p class="reveal-element delay-2 font-sans text-base md:text-lg text-gray-300 font-light leading-relaxed">
+            Without firing a single shot, John Paul II wielded moral authority to challenge Soviet hegemony. Historians globally recognize his historic visits to Central and Eastern Europe as the catalyst that brought down the Berlin Wall.
+          </p>
+          <blockquote class="reveal-element delay-3 font-serif italic text-lg md:text-2xl text-papal-lightGold border-l-2 border-papal-gold pl-4 py-1">
+            "Let your Spirit descend and renew the face of the earth. This very earth."
+          </blockquote>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= SECTION 5: IMAGE 3 (CRISP PHOTO + TITLE OVERLAY) ================= -->
+    <section class="snap-section flex items-center justify-center text-center px-6" id="sec-5">
+      <div class="absolute inset-0 z-0 overflow-hidden">
+        <img 
+          src="https://images.unsplash.com/photo-1519817650390-64a93db51149?q=80&w=2000&auto=format&fit=crop" 
+          alt="Cathedral rays of light" 
+          class="w-full h-full object-cover ken-burns"
+        />
+        <div class="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/80"></div>
+      </div>
+
+      <div class="relative z-10 max-w-4xl">
+        <span class="reveal-element text-papal-gold font-sans text-xs uppercase tracking-[0.3em] block mb-3 font-semibold">Global Travels</span>
+        <h2 class="reveal-element delay-1 font-serif text-5xl md:text-8xl text-white font-semibold leading-tight drop-shadow-md">
+          The Pilgrim Pope
+        </h2>
+      </div>
+    </section>
+
+    <!-- ================= SECTION 6: TEXT 3 (INTERFAITH & YOUTH) ================= -->
+    <section class="snap-section bg-papal-slate flex items-center justify-center px-6 md:px-12" id="sec-6">
+      <div class="max-w-3xl mx-auto text-center">
+        <span class="reveal-element text-papal-gold font-sans text-xs uppercase tracking-[0.3em] mb-4 block font-semibold">Chapter III</span>
+        <h2 class="reveal-element delay-1 font-serif text-4xl md:text-6xl text-papal-cream mb-8">
+          Bridge Builder &amp; Youth Champion
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-left mb-8">
+          <div class="reveal-element delay-2 bg-black/30 p-6 rounded-lg border border-white/5">
+            <h4 class="font-serif text-xl text-papal-gold mb-2">Interfaith Healing</h4>
+            <p class="font-sans text-sm text-gray-300 leading-relaxed font-light">
+              First pope to visit the Great Synagogue of Rome and enter a mosque in Damascus. He prayed at the Western Wall, seeking reconciliation between ancient faiths.
+            </p>
+          </div>
+          <div class="reveal-element delay-3 bg-black/30 p-6 rounded-lg border border-white/5">
+            <h4 class="font-serif text-xl text-papal-gold mb-2">World Youth Day</h4>
+            <p class="font-sans text-sm text-gray-300 leading-relaxed font-light">
+              Inaugurated World Youth Day in 1985, gathering millions of young people across the globe in joy, music, and quiet reflection.
+            </p>
+          </div>
+        </div>
+        <p class="reveal-element delay-4 font-serif italic text-xl text-papal-lightGold">
+          "You are the hope of the world. You are my hope."
+        </p>
+      </div>
+    </section>
+
+    <!-- ================= SECTION 7: IMAGE 4 (CRISP PHOTO + TITLE OVERLAY) ================= -->
+    <section class="snap-section flex items-end justify-start pb-20 md:pb-24 px-8 md:px-20" id="sec-7">
+      <div class="absolute inset-0 z-0 overflow-hidden">
+        <img 
+          src="https://images.unsplash.com/photo-1544644181-1484b3fdfc62?q=80&w=2000&auto=format&fit=crop" 
+          alt="Candlelight flame" 
+          class="w-full h-full object-cover ken-burns"
+        />
+        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent"></div>
+      </div>
+
+      <div class="relative z-10 max-w-4xl text-left">
+        <span class="reveal-element text-red-300 font-sans text-xs uppercase tracking-[0.3em] block mb-2 font-semibold">May 13, 1981</span>
+        <h2 class="reveal-element delay-1 font-serif text-5xl md:text-7xl lg:text-8xl text-white font-semibold leading-none drop-shadow-md">
+          Forgiveness &amp; Grace
+        </h2>
+      </div>
+    </section>
+
+    <!-- ================= SECTION 8: TEXT 4 (SUFFERING & LEGACY) ================= -->
+    <section class="snap-section bg-papal-dark flex items-center justify-center px-6 md:px-12" id="sec-8">
+      <div class="max-w-3xl mx-auto text-center">
+        <span class="reveal-element text-papal-gold font-sans text-xs uppercase tracking-[0.3em] mb-4 block font-semibold">Final Chapter</span>
+        <h2 class="reveal-element delay-1 font-serif text-4xl md:text-6xl text-papal-cream mb-6">
+          The Witness of Suffering
+        </h2>
+        <p class="reveal-element delay-2 font-sans text-base md:text-lg text-gray-300 leading-relaxed font-light mb-8">
+          In his final years, battling Parkinson’s disease, John Paul II taught the world how to bear physical suffering with dignity. His silence from the papal window in his last days spoke louder than words.
+        </p>
+        <div class="reveal-element delay-3 p-8 border border-papal-gold/20 bg-papal-slate/40 rounded-xl max-w-xl mx-auto">
+          <p class="font-serif text-2xl text-papal-gold mb-2">Canonized a Saint</p>
+          <p class="font-sans text-xs uppercase tracking-widest text-gray-400 mb-4">April 27, 2014 &bull; Vatican City</p>
+          <p class="font-sans text-sm text-gray-300 font-light">
+            Declared Saint John Paul the Great by Pope Francis before a gathering of over one million pilgrims.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= SECTION 9: FOOTER / EPILOGUE ================= -->
+    <section class="snap-section bg-black flex items-center justify-center px-6 text-center" id="sec-9">
+      <div class="max-w-2xl mx-auto">
+        <i class="fa-solid fa-cross text-papal-gold text-3xl mb-6 reveal-element"></i>
+        <h2 class="reveal-element delay-1 font-serif text-3xl md:text-5xl text-papal-cream mb-6">
+          "As the sea breaks upon the shore..."
+        </h2>
+        <p class="reveal-element delay-2 font-sans text-sm text-gray-400 mb-8 max-w-md mx-auto">
+          Thank you for exploring this scrollytelling memorial dedicated to Pope John Paul II.
+        </p>
+        <button 
+          onclick="scrollToTop()" 
+          class="reveal-element delay-3 inline-flex items-center gap-2 border border-papal-gold text-papal-gold hover:bg-papal-gold hover:text-papal-dark transition px-6 py-3 rounded-full uppercase text-xs tracking-widest font-semibold"
+        >
+          <i class="fa-solid fa-arrow-up"></i> Return to Beginning
+        </button>
+      </div>
+    </section>
+
+  </div>
+
+  <script>
+    // State management
+    const totalSections = 9;
+    const container = document.getElementById('scroll-container');
+    const navContainer = document.getElementById('section-nav');
+
+    // Generate right-side section dots
+    for (let i = 1; i <= totalSections; i++) {
+      const dot = document.createElement('button');
+      dot.className = `w-2.5 h-2.5 rounded-full transition-all duration-300 ${i === 1 ? 'bg-papal-gold scale-125' : 'bg-white/30 hover:bg-white/60'}`;
+      dot.setAttribute('aria-label', `Go to section ${i}`);
+      dot.onclick = () => {
+        document.getElementById(`sec-${i}`).scrollIntoView({ behavior: 'smooth' });
+      };
+      dot.id = `nav-dot-${i}`;
+      navContainer.appendChild(dot);
+    }
+
+    // Scroll to next helper
+    function scrollToNext(currentSec) {
+      const nextSec = currentSec + 1;
+      if (nextSec <= totalSections) {
+        document.getElementById(`sec-${nextSec}`).scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+
+    // Scroll to top
+    function scrollToTop() {
+      document.getElementById('sec-1').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    // Intersection Observer for animations and dots active state
+    const observerOptions = {
+      root: container,
+      threshold: 0.5
+    };
+
+    const sectionObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const id = entry.target.id;
+          const secNum = parseInt(id.replace('sec-', ''));
+
+          // Update navigation dots
+          for (let i = 1; i <= totalSections; i++) {
+            const dot = document.getElementById(`nav-dot-${i}`);
+            if (i === secNum) {
+              dot.className = 'w-2.5 h-2.5 rounded-full bg-papal-gold scale-125 transition-all duration-300';
+            } else {
+              dot.className = 'w-2.5 h-2.5 rounded-full bg-white/30 hover:bg-white/60 transition-all duration-300';
+            }
+          }
+
+          // Trigger internal element reveals
+          const reveals = entry.target.querySelectorAll('.reveal-element');
+          reveals.forEach(el => el.classList.add('active'));
+        }
+      });
+    }, observerOptions);
+
+    // Observe all sections
+    document.querySelectorAll('.snap-section').forEach(sec => {
+      sectionObserver.observe(sec);
+    });
+  </script>
+</body>
+</html>
