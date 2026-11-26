@@ -3,7 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Karol Wojtyła — Pope John Paul II: A Scrollytelling Journey</title>
+ 
+ <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://vivekdavid.com/jpii/vocation" />
+  <meta property="og:title" content="Karol Wojtyła — Pope John Paul II: His Vocation" />
+  <meta property="og:description" content="A scrollable journey through John Paul's journey to the priesthood." />
+
+  <title>Karol Wojtyła — Pope John Paul II: His Vocation </title>
   
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -36,7 +42,7 @@
 
     html, body {
       height: 100%;
-      overflow-x: hidden;
+      overflow: hidden;
       font-family: var(--font-sans);
       background-color: var(--papal-dark);
       color: var(--papal-cream);
@@ -69,7 +75,7 @@
 
     .snap-section {
       scroll-snap-align: start;
-      scroll-snap-stop: always;
+      scroll-snap-stop: normal;
       height: 100vh;
       width: 100vw;
       position: relative;
@@ -132,7 +138,7 @@
 
     .header-badge {
       pointer-events: auto;
-      background: rgba(0, 0, 0, 0.4);
+      background: var(--papal-light-gold);
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
       padding: 0.375rem 1rem;
@@ -471,7 +477,7 @@ object-fit: contain;   /* ← changed from cover */
 
     .overlay-title {
       font-family: var(--font-serif);
-      font-size: 3rem;
+      font-size: 2rem;
       color: white;
       font-weight: 600;
       line-height: 1;
@@ -804,7 +810,7 @@ object-fit: contain;   /* ← changed from cover */
   <!-- Fixed Minimal Navigation Header -->
   <header class="site-header">
     <div class="header-badge">
-      <span class="logo">JPII</span>
+	    <span class="logo"><a href=../>JPII</a></span>
     </div>
     <div class="header-label">
    His Vocation   
@@ -852,7 +858,7 @@ object-fit: contain;   /* ← changed from cover */
         </h2>
         <div class="gold-divider reveal-element delay-2"></div>
         <p class="reveal-element delay-2 body-text">
-       In an effort to destroy Polish culture, the Nazis banned all Polish cultural and artistic activities.    In response, John Paul got together with some friends  co-founded a underground theater company called Rhapsodic Theater.  They operated in secret performing in people's homes. During this time, while working at the chemical plant and performing in Rhapsodic theater, John Paul began considering the priesthood.  
+ The Nazis set out to destroy Polish culture, banning all cultural and artistic activity. In response, John Paul co-founded the Rhapsodic Theatre with some friends. It was an underground company that performed in secret, often in people's homes. It was during this time that he first began to consider the priesthood. 
 	</p>
         <!-- <p class="reveal-element delay-3 quote-text"> -->
         <!--   "Work in a chemical quarry taught me human dignity; secret theater preserved our national culture." -->
@@ -873,9 +879,9 @@ object-fit: contain;   /* ← changed from cover */
       </div>
 
       <div class="section-content overlay-content">
-        <span class="reveal-element overlay-label">October 16, 1978</span>
+        <!-- <span class="reveal-element overlay-label">October 16, 1978</span> -->
         <h2 class="reveal-element delay-1 overlay-title">
-          The 1978 Election
+        Young Actor   
         </h2>
       </div>
     </section>
@@ -889,8 +895,9 @@ object-fit: contain;   /* ← changed from cover */
 	</h2>
         <div class="gold-divider reveal-element delay-2"></div>
         <p class="reveal-element delay-2 body-text">
-	As the occupation drew on John Paul started to think more and more about the Priesthood.  He was inspired by his fathers death, and the sacrifice of many young Poles who gave their lives opposing the Nazis.  His friends at the theater were not pleased with this development.  They felt it was a waste of his talent.  They told him that he couldn't solve the world's problems by locking himself in a monastery and praying.  Despite this, in 1942, at the age of 22, John Paul approached his local archbishop and told him he wanted to be a priest.  
-</p>
+As the occupation drew on, John Paul began to think more and more about the priesthood. This desire was shaped partly by his father's death. He was also moved by the sacrifice of the many young Poles who gave their lives resisting the Nazis. His friends at the theatre were not pleased. They felt it was a waste of his talent. One told him he couldn't solve the world's problems by locking himself in a monastery and praying. Despite this, in 1942, at the age of 22, John Paul approached the archbishop of Kraków and declared he wanted to be a priest.
+
+	</p>
         <!-- <p class="reveal-element delay-3 quote-text"> -->
         <!--   "Work in a chemical quarry taught me human dignity; secret theater preserved our national culture." -->
         <!-- </p> -->
@@ -900,23 +907,25 @@ object-fit: contain;   /* ← changed from cover */
    
 
     <!-- ================= SECTION 5: PILGRIM POPE ================= -->
-    <section class="snap-section centered-image-section" id="sec-5">
+     <section class="snap-section image-overlay-section" id="sec-5">
       <div class="section-bg-image">
         <img 
-          src="https://images.unsplash.com/photo-1519817650390-64a93db51149?q=80&w=2000&auto=format&fit=crop" 
-          alt="Cathedral rays of light" 
+          src="https://res.cloudinary.com/d3gizu6t/image/upload/v1795399182/seminarian.jpg" 
+          alt="warsaw uprsing" 
           class="ken-burns"
+	  style="object-position: center 25%;"
         />
-        <div class="gradient-overlay-center"></div>
+        <div class="gradient-overlay-soft"></div>
       </div>
 
-      <div class="section-content centered-image-content">
-        <span class="reveal-element overlay-label">Global Travels</span>
+      <div class="section-content overlay-content">
+        <span class="reveal-element overlay-label">John Paul pictured in center</span>
         <h2 class="reveal-element delay-1 overlay-title">
-          The Pilgrim Pope
-        </h2>
+		Seminarians
+	</h2>
       </div>
     </section>
+
 
     <!-- ================= SECTION 6: BRIDGE BUILDER ================= -->
       <section class="snap-section text-section" id="sec-6">
@@ -927,7 +936,7 @@ object-fit: contain;   /* ← changed from cover */
 	</h2>
         <div class="gold-divider reveal-element delay-2"></div>
         <p class="reveal-element delay-2 body-text">
-	One day while walking home from the Solevy Chemical plant, John Paul was hit by a army truck and left unconscious and bleeding.  He spent 2 weeks recovering in a hospital room overlooking a Carmelite monastery. On another occasion, Nazi troops stormed Krakow and arrested 8000 men in revenge for the Warsaw uprising.  John Paul was praying in the basement when the SS raided his home.  They walked right by the basement door without opening it.   These incidents led John Paul to believe that he had been spared for a reason.  
+One day, while walking home from the Solvay chemical plant, John Paul was hit by a Nazi truck. The driver left him unconscious and bleeding on the road. He spent two weeks recovering in a hospital room overlooking a Carmelite monastery. A few months later, Nazi troops stormed Krakow and arrested 8,000 men in revenge for the Warsaw Uprising. John Paul was praying in the basement when the SS raided his home. They walked right by the basement door without opening it. These incidents led John Paul to believe he had been spared for a reason.
 
 
 	</p>
@@ -942,7 +951,7 @@ object-fit: contain;   /* ← changed from cover */
     <section class="snap-section image-overlay-section" id="sec-7">
       <div class="section-bg-image">
         <img 
-          src="https://images.unsplash.com/photo-1544644181-1484b3fdfc62?q=80&w=2000&auto=format&fit=crop" 
+          src="https://res.cloudinary.com/d3gizu6t/image/upload/v1795397575/german_opression.jpg" 
           alt="Candlelight flame" 
           class="ken-burns"
         />
@@ -950,9 +959,9 @@ object-fit: contain;   /* ← changed from cover */
       </div>
 
       <div class="section-content overlay-content">
-        <span class="reveal-element overlay-label danger">May 13, 1981</span>
+        <span class="reveal-element overlay-label">Polish priests and civilians awaiting execution</span>
         <h2 class="reveal-element delay-1 overlay-title">
-          Forgiveness &amp; Grace
+         Nazi Oppression 
         </h2>
       </div>
     </section>
@@ -966,8 +975,50 @@ object-fit: contain;   /* ← changed from cover */
 	</h2>
         <div class="gold-divider reveal-element delay-2"></div>
         <p class="reveal-element delay-2 body-text">
- The Nazis had outlawed new priests so the seminary was conducted secretly in homes and the archbishops residence.  Many seminarians were executed, or sent to concentration camps where they died.  Eventually the archbishop made the seminarians stay under house arrest in his home, to avoid the possibility of them being captured.  In 1945 bombs were hard throughout Krakow as the Nazis blew up the bridges behind them as they retreated before the soviet army.   
 
+The Nazis had banned the seminaries, so John Paul's training was conducted in secret, in private homes and the archbishop's residence. Many seminarians were executed, or died in concentration camps. On November 1, 1946, at the age of 26, John Paul was ordained to the priesthood. The next day, on All Souls' Day, he celebrated his first Mass. He offered it for his deceased family
+	</p>
+        <!-- <p class="reveal-element delay-3 quote-text"> -->
+        <!--   "Work in a chemical quarry taught me human dignity; secret theater preserved our national culture." -->
+        <!-- </p> -->
+      </div>
+    </section>
+    <!-- ================= SECTION 10: 1978 ELECTION ================= -->
+    <section class="snap-section image-overlay-section" id="sec-9">
+      <div class="section-bg-image">
+        <img 
+          src="https://res.cloudinary.com/d3gizu6t/image/upload/v1795399778/consecration.jpg" 
+          alt="Young Father Wojtyla" 
+          class="ken-burns"
+	  style="object-position: center 25%;"
+        />
+        <div class="gradient-overlay-soft"></div>
+      </div>
+
+      <div class="section-content overlay-content">
+        <!-- <span class="reveal-element overlay-label">October 16, 1978</span> -->
+        <h2 class="reveal-element delay-1 overlay-title">
+        Young Priest 
+        </h2>
+      </div>
+    </section>
+
+
+    <!-- ================= SECTION 10: SUFFERING & LEGACY ================= -->
+       <section class="snap-section text-section" id="sec-10">
+      <div class="text-content">
+        <span class="reveal-element chapter-label">Chapter I</span>
+        <h2 class="reveal-element delay-1 section-heading">
+      Reflection Questions 
+	</h2>
+        <div class="gold-divider reveal-element delay-2"></div>
+        <p class="reveal-element delay-2 body-text">
+	<ol>
+		<li>John Paul joined an underground theatre and later entered seminary in secret, knowing each time it could cost him his life. Have you or someone you know ever taken a significant risk because of a belief or set of values?</li>
+		<li>John Paul's brushes with death convinced him that God had spared him for a reason. Have you ever experienced something that made you wonder whether there was a greater purpose behind it?</li>
+	<li>John Paul offered his first Mass for his deceased family. Is there anyone in your life who continues to influence you despite having passed? 
+	</li>
+	</ol>
 	</p>
         <!-- <p class="reveal-element delay-3 quote-text"> -->
         <!--   "Work in a chemical quarry taught me human dignity; secret theater preserved our national culture." -->
@@ -976,23 +1027,31 @@ object-fit: contain;   /* ← changed from cover */
     </section>
 
 
-    <!-- ================= SECTION 9: EPILOGUE ================= -->
-    <section class="snap-section epilogue-section" id="sec-9">
+    <!-- ================= SECTION 11: EPILOGUE ================= -->
+    <section class="snap-section epilogue-section" id="sec-11">
       <div class="epilogue-content">
         <i class="fa-solid fa-cross epilogue-icon reveal-element"></i>
         <h2 class="reveal-element delay-1 epilogue-title">
-          "As the sea breaks upon the shore..."
+          "Do not be afraid. Open wide the doors for Christ."
         </h2>
         <p class="reveal-element delay-2 epilogue-text">
           Thank you for exploring this scrollytelling memorial dedicated to Pope John Paul II.
         </p>
-        <button 
-          onclick="scrollToTop()" 
-          class="reveal-element delay-3 return-btn"
-        >
-          <i class="fa-solid fa-arrow-up"></i> Return to Beginning
-        </button>
-      </div>
+   
+
+	<div class="epilogue-buttons">
+  <a href="/jpii/" class="reveal-element delay-3 return-btn">
+    <i class="fa-solid fa-list"></i> Table of Contents
+  </a>
+</div>
+<br/><br/>
+
+
+		<button onclick="scrollToTop()" class="reveal-element delay-3 return-btn">
+    <i class="fa-solid fa-arrow-up"></i> Return to Beginning
+  </button>
+
+       </div>
     </section>
 
 
@@ -1000,7 +1059,7 @@ object-fit: contain;   /* ← changed from cover */
 
   <script>
     // State management
-    const totalSections =9;
+    const totalSections =11;
     const container = document.getElementById('scroll-container');
     const navContainer = document.getElementById('section-nav');
 
@@ -1062,6 +1121,39 @@ object-fit: contain;   /* ← changed from cover */
     document.querySelectorAll('.snap-section').forEach(sec => {
       sectionObserver.observe(sec);
     });
+ 
+// Force one-section-at-a-time with arrow keys / PageUp / PageDown
+document.addEventListener('keydown', (e) => {
+  const keys = ['ArrowDown', 'ArrowUp', 'PageDown', 'PageUp', ' '];
+  if (!keys.includes(e.key)) return;
+
+  // Don't steal keys when user is typing in an input/textarea
+  if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+
+  e.preventDefault();
+
+  // Figure out which section is currently most visible
+  let current = 1;
+  document.querySelectorAll('.snap-section').forEach((sec, i) => {
+    const rect = sec.getBoundingClientRect();
+    if (rect.top <= window.innerHeight / 2 && rect.bottom >= window.innerHeight / 2) {
+      current = i + 1;
+    }
+  });
+
+  let target = current;
+
+  if (e.key === 'ArrowDown' || e.key === 'PageDown' || e.key === ' ') {
+    target = Math.min(current + 1, totalSections);
+  } else if (e.key === 'ArrowUp' || e.key === 'PageUp') {
+    target = Math.max(current - 1, 1);
+  }
+
+  if (target !== current) {
+    document.getElementById(`sec-${target}`).scrollIntoView({ behavior: 'smooth' });
+  }
+});
+
   </script>
 </body>
 </html>
